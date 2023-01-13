@@ -15,6 +15,7 @@ enable secret 5 $1$G3j8$h06fjiGZVnG4FGl8jSV/m1
 !      
 clock timezone mytimez 2 0
 !
+ip domain lookup
 ip domain name companyXYZ.sk
 ip name-server 195.1.1.161
 !

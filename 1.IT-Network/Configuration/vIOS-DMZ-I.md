@@ -39,6 +39,7 @@ interface GigabitEthernet0/0
 !
 interface Vlan10
  ip address 195.1.1.166 255.255.255.248
+ no shutdown
 !
 ip route 0.0.0.0 0.0.0.0 195.1.1.133
 !

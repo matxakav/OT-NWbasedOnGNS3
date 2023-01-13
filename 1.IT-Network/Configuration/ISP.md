@@ -13,6 +13,7 @@
 ```
 hostname ISP1
 !
+ip domain lookup
 ip name-server 8.8.8.8
 ip name-server 8.8.4.4
 !
@@ -59,6 +60,7 @@ end
 ```
 hostname ISP2      
 !
+ip domain lookup
 ip name-server 8.8.8.8
 ip name-server 8.8.4.4
 !

@@ -69,6 +69,7 @@ interface Vlan50
  ip address 172.16.50.254 255.255.255.0
  ip ospf authentication message-digest
  ip ospf message-digest-key 1 md5 #MyPass!034
+ no shutdown
 !
 router ospf 1
  router-id 10.1.1.4
