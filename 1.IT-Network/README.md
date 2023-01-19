@@ -1,6 +1,6 @@
 # Experimental IT Network on GNS3
 
-Current project status is available on MS Teams, due to a very large file size.
+Current project status is available on [Google Drive](https://drive.google.com/drive/folders/1ooRXrQyf2Lz0mGtcHeRZjTrhDW_SKV4w).
 
 ## Network Description
 
