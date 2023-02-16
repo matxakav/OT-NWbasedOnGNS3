@@ -49,6 +49,10 @@ iface eth0 inet static
 	up echo nameserver 8.8.8.8 > /etc/resolv.conf
 ```
 
+| | |
+|-|-|
+| ![image](/img/4.png) | ![image](/img/5.png) |
+
 | Docker container | address | gateway |
 |-|-|-|
 | OpenPLC-1 | 192.168.10.1 | 192.168.10.254 |
