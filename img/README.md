@@ -5,7 +5,7 @@
 ### Usage
 
 1. Put images in this `img` folder with random names.
-2. Call these images in markdown using **absolute** paths.
+2. Call these images in markdown using **absolute** paths. (this may have problems)
 
 ```markdown
 ![image](/img/sample.png)
