@@ -2,7 +2,7 @@
 
 ## Network Description
 
-![image](/img/1.png)
+![image]("https://user-images.githubusercontent.com/69375071/219404569-1387655b-0fcf-4302-a242-8390641dc1f0.png")
 
 The OT network is forked and developed from the IT network, where all VPCS's are replaced by docker containers (i.e., OpenPLC, ScadaLTS, and KaliLinux). The reasons why we use docker containers instead of [ubuntu cloud images](https://cloud-images.ubuntu.com) to simulate these end devices are as follows.
 
@@ -31,7 +31,7 @@ Create templates for these 3 docker images following the table. Keep other unspe
 
 | | |
 |-|-|
-| ![image](/img/2.png) | ![image](/img/3.png) |
+| ![image]("https://user-images.githubusercontent.com/69375071/219404831-48619037-2910-45de-985f-01f51ac5617b.png") | ![image]("https://user-images.githubusercontent.com/69375071/219404968-3a93abe1-d846-4ca6-aab9-1a6dd46daac4.png") |
 
 Link the network following the image above.
 
@@ -51,7 +51,7 @@ iface eth0 inet static
 
 | | |
 |-|-|
-| ![image](/img/4.png) | ![image](/img/5.png) |
+| ![image]("https://user-images.githubusercontent.com/69375071/219405156-cff06161-ff39-49bb-bf13-9c45d956dbdc.png") | ![image]("https://user-images.githubusercontent.com/69375071/219405296-ad4e567d-4192-43ee-adec-6d8b8838c263.png") |
 
 | Docker container | address | gateway |
 |-|-|-|
