@@ -21,6 +21,8 @@ docker pull sflorenz05/open-plc:v0.3
 docker pull wzy318/kalilinux:latest
 ```
 
+> Special credit to Scada-LTS team for their support in [troubleshooting and creating](https://github.com/SCADA-LTS/Scada-LTS/issues/2473) of scadalts/scadalts:v2.6.18-mysql-8 docker image.
+
 Create templates for these 3 docker images following the table. Keep other unspecified fields unchanged.
 
 | Docker image | Name | Console type | HTTP port in the container | HTTP path |
