@@ -1,7 +1,7 @@
 # Importing Appliances to GNS3 Server
 
 - This is the generic guide for importing an appliance to GNS3 server.
-- Download all required templates [here](./gns3-appliances.zip).
+- Download all required templates [here](.).
 
 ## Procedures
 

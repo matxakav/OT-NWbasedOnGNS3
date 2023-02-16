@@ -1,6 +1,6 @@
 # Experimental IT Network on GNS3
 
-Current project status is available on [Google Drive](https://drive.google.com/drive/folders/1ooRXrQyf2Lz0mGtcHeRZjTrhDW_SKV4w).
+Portable project of the base network is available on [Google Drive](https://drive.google.com/drive/folders/1ooRXrQyf2Lz0mGtcHeRZjTrhDW_SKV4w).
 
 ## Network Description
 

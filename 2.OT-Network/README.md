@@ -2,62 +2,58 @@
 
 ## Network Description
 
-> To be updated after IT-Network is completed.
+![image](/img/1.png)
 
-![image](https://user-images.githubusercontent.com/69375071/210197317-12a7553f-9dea-4a2c-9336-2f2b721b06b8.png)
+The OT network is forked and developed from the IT network, where all VPCS's are replaced by docker containers (i.e., OpenPLC, ScadaLTS, and KaliLinux). The reasons why we use docker containers instead of [ubuntu cloud images](https://cloud-images.ubuntu.com) to simulate these end devices are as follows.
 
-TODO: merge contents from ICSVirtual repository.
+- GNS3 server has native support for docker containers, including port mapping and network configuration.
+- Docker containers are lightweight and consume less RAM, ideal for deployment in cloud computing instances.
 
-## Table of Devices and Images
+> Docker containers in GNS3 server are `versatile`. They are created on project opening and removed on project closing, so all changes made to the containers are not persistent.
 
-| Devices | Images | Notes |
-| --- | --- | --- |
-| PC1-4 | GNS3 built-in VPCS | |
-| OpenSwitch-Acc-I/II | [OpenSwitch-0.4.0.vmdk](https://drive.google.com/open?id=1u5CPt9_JVOd-cGBNEzPoAaWV7Dibe8vW) | @Deprecated |
-| vEOS-Dis-I/II | [vEOS-lab-4.17.10M.vmdk](https://www.arista.com/en/support/software-download) + [Aboot-veos-serial-8.0.0.iso](https://www.arista.com/en/support/software-download) | login to Arista to download (free as a guest, one can register with an academic email account) |
-| vIOS-Core-I/II, vIOS-Ser-I, vIOS-DMZ-I | [vIOS-L2 15.2](https://drive.google.com/drive/folders/1Yo9V9vUJDkjWOtguarChq-nRKWoFT5m5) | from latest comments in this thread [gist.Github](https://gist.github.com/GustaveTsopmo/eb0512891a9bd9cd497d4fcbcd0efdc2) |
-| vIOS-Edge-I | [vIOS 15.6.2](https://upw.io/9fe/vios-adventerprisek9-m-15.6.2T.qcow2) |from [UPW.IO](https://upw.io/9fe/vios-adventerprisek9-m-15.6.2T.qcow2)|
-| ASAv-I, ASAv-DMZ-I | [ASAv 9.6.1](https://drive.google.com/drive/folders/1SO5uAsOoReus4qToCTYN-oNKYjc4n2Q8) | from [networkhunt](https://networkhunt.com/download/download-cisco-asav/) |
-| ISP1/2 | [Cisco 7200](https://upw.io/4ui/c7200-advipservicesk9-mz.152-4.S5.image) | from [UPW.IO](https://upw.io/4ui/c7200-advipservicesk9-mz.152-4.S5.image) |
-| Server1, Server-DMZ-I | [Ubuntu-Server-22.04LTS.img](https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img) | MUST follow [this guide](../Devices-Configurations/devices_images/Server/README.md) to set up local password login before importing |
+## Prerequisites
 
-## Building Layers
+Pull the required docker images.
 
-  The strategy for building the GNS3 network is to go from the bottom layer to the top layer.
+```bash
+docker pull scadalts/scadalts:v2.6.18-mysql-8
+docker pull sflorenz05/open-plc:v0.3
+docker pull wzy318/kalilinux:latest
+```
 
-### End devices
+Create templates for these 3 docker images following the table. Keep other unspecified fields unchanged.
 
-- To deploy only simple PC follows this [documentation](./../Devices-Configurations/devices_images/SimplePCs/README.md)
-- Read this [documentation](../Devices-Configurations/devices_images/Server/README.md) to quickly get a ubuntu server qcow2 instance.
+| Docker image | Name | Console type | HTTP port in the container | HTTP path |
+|-|-|-|-|-|
+| scadalts/scadalts:v2.6.18-mysql-8 | ScadaLTS | http | 8080 | /Scada-LTS |
+| sflorenz05/open-plc:v0.3 | OpenPLC | http | 8090 | / |
+| wzy318/kalilinux:latest | KaliLinux | telnet | | |
 
-### Access Layer
+| | |
+|-|-|
+| ![image](/img/2.png) | ![image](/img/3.png) |
 
-1. Read this [documentation](./../Devices-Configurations/devices_images/Open_Switch_0.4.0/README.md) to add Open Switch 0.4.0 image to the **Access Layer**.
-2. [Add this configuration on the Open Switch Access I](./../Devices-Configurations/config_files/OpenSwitch-Acc-I.txt)
-3. [Add this configuration on the Open Switch Access II](./../Devices-Configurations/config_files/OpenSwitch-Acc-II.txt)
+Link the network following the image above.
 
-### Distribution Layer
+Configure network interfaces for the docker containers.
 
-1. Read this [documentation](./../Devices-Configurations/devices_images/Arista_vEOS_v4.17.2F/README.md) to add Arista vEOS version 4.17.2F image to the **Distribution Layer**.
-2. [Add this configuration on the Switch Distribution I](./../Devices-Configurations/config_files/vEOS-DIS-I.txt)
-3. [Add this configuration on the Switch Distribution II](./../Devices-Configurations/config_files/vEOS-DIS-II.txt)
+1. Right click on the device and select `Edit config`.
+2. Uncomment the following lines to configure a static IPv4 address.
 
-### Core Layer
+```
+auto eth0
+iface eth0 inet static
+	address 192.168.10.1
+	netmask 255.255.255.0
+	gateway 192.168.10.254
+	up echo nameserver 8.8.8.8 > /etc/resolv.conf
+```
 
-1. Read this [documentation](./../Devices-Configurations/devices_images/CISCO_vIOS-L2/README.md) to add the CISCO vIOS-L2 image to the **Core Layer**.
-2. [Add this configuration on the Switch Core I](./../Devices-Configurations/config_files/vIOS-Core-I-1.txt)
-3. [Add this configuration on the Switch Core II](./../Devices-Configurations/config_files/vIOS-Core-II-1.txt)
+| Docker container | address | gateway |
+|-|-|-|
+| OpenPLC-1 | 192.168.10.1 | 192.168.10.254 |
+| OpenPLC-2 | 192.168.20.1 | 192.168.20.254 |
+| OpenPLC-3 | 192.168.30.1 | 192.168.30.254 |
+| KaliLinux | 192.168.40.1 | 192.168.40.254 |
+| ScadaLTS | 172.16.50.1 | 172.16.50.254 |
 
-### Firewall Layer
-
-1. Read this [documentation](./../Devices-Configurations/devices_images/ASAv/README.md) to add the Firewall ASAv image to the **Firewall Layer**.
-2. [Add this configuration on the Firewall CISCO ASA](./../Devices-Configurations/config_files/vASA-I.txt)
-
-## Other Layers
-
-2. [Switch Data center](./../Devices-Configurations/config_files/vIOS-Serv-I.txt)
-3. [Router Edge](./../Devices-Configurations/config_files/vIOS-EDGE-U.txt)
-4. [Router ISP1](./../Devices-Configurations/config_files/ISP1.txt)
-5. [Router ISP2](./../Devices-Configurations/config_files/ISP2.txt)
-6. [Firewall CISCO ASA DMZ](./../Devices-Configurations/config_files/ASAv-DMZ-I.txt)
-7. [Switch DMZ](./../Devices-Configurations/config_files/vIOS-DMZ-I.txt)
