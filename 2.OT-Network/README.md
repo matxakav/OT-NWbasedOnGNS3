@@ -11,7 +11,7 @@ The OT network is forked and developed from the IT network, where all VPCS's are
 
 > Docker containers in GNS3 server are `versatile`. They are created on project opening and removed on project closing, so all changes made to the containers are not persistent.
 
-## Prerequisites
+## Deployment of OT Network
 
 Pull the required docker images.
 
@@ -35,25 +35,12 @@ Create templates for these 3 docker images following the table. Keep other unspe
 |-|-|
 | ![image](https://user-images.githubusercontent.com/69375071/219404831-48619037-2910-45de-985f-01f51ac5617b.png) | ![image](https://user-images.githubusercontent.com/69375071/219404968-3a93abe1-d846-4ca6-aab9-1a6dd46daac4.png) |
 
-Link the network following the image above.
+Link the network following the image at the top.
 
-Configure network interfaces for the docker containers.
+Configure network interfaces for the docker containers according to the table below.
 
 1. Right click on the device and select `Edit config`.
-2. Uncomment the following lines to configure a static IPv4 address.
-
-```
-auto eth0
-iface eth0 inet static
-	address 192.168.10.1
-	netmask 255.255.255.0
-	gateway 192.168.10.254
-	up echo nameserver 8.8.8.8 > /etc/resolv.conf
-```
-
-| | |
-|-|-|
-| ![image](https://user-images.githubusercontent.com/69375071/219405156-cff06161-ff39-49bb-bf13-9c45d956dbdc.png) | ![image](https://user-images.githubusercontent.com/69375071/219405296-ad4e567d-4192-43ee-adec-6d8b8838c263.png) |
+2. Uncomment the lines as shown in the picture to configure a static IPv4 address for the default network interface `eth0`. All docker containers share a netmask `255.255.255.0` and nameserver `8.8.8.8`.
 
 | Docker container | address | gateway |
 |-|-|-|
@@ -63,3 +50,6 @@ iface eth0 inet static
 | KaliLinux | 192.168.40.1 | 192.168.40.254 |
 | ScadaLTS | 172.16.50.1 | 172.16.50.254 |
 
+| | |
+|-|-|
+| ![image](https://user-images.githubusercontent.com/69375071/219405156-cff06161-ff39-49bb-bf13-9c45d956dbdc.png) | ![image](https://user-images.githubusercontent.com/69375071/219405296-ad4e567d-4192-43ee-adec-6d8b8838c263.png) |

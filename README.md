@@ -28,6 +28,14 @@ This repo requires the deployment of 2 AWS EC2 instances:
 
 1. [Deploy the SDN-Controller](./3.SDN/README.md) connected to the Experimental Base Network.
 
+## Modbus Attack
+
+[Conduct and examine the Modbus attack](./4.Modbus/README.md).
+
+## OSPF Attack
+
+[Conduct and examine the OSPF attack](./5.OSPF/README.md).
+
 ## Troubleshooting
 
 - [Examines the main troubleshooting](./Troubleshootings/README.md)
