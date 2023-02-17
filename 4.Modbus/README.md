@@ -8,7 +8,7 @@ Modbus is a simple Master-Slave protocol designed for communications between Pro
 
 The Application Data Unit (ADU) of Modbus has 3 implementations: Modbus/RTU, Modbus/ASCII, and Modbus/TCP. The first two protocols operate on Serial, while Modbus/TCP runs on Ethernet. The picture below shows the ADU of Modbus/RTU protocol. In this project, we use Modbus/TCP for OpenPLC and ScadaLTS to communicate over Ethernet.
 
-![image](/img/1.png)
+![image](https://user-images.githubusercontent.com/69375071/219570333-4141b14c-51bc-4796-ac57-31c9f6b4512a.png)
 
 The function code is of 1 Byte with a range from 1 (00000001) to 255 (11111111). Some of the function codes of Modbus protocol are pre-defined (well-known). For example, 1 means `Read Coils`, 3 means `Read Holding Registers`, and 6 means `Write Single Register`.
 
@@ -22,8 +22,8 @@ We first capture the ADU packets that go in and out the OpenPLC using Wireshark.
 
 | | |
 |-|-|
-| ![image](/img/2.png) | ![image](/img/3.png) |
+| ![image](https://user-images.githubusercontent.com/69375071/219570391-eb2c66d8-5a49-41b5-bb71-a388eff1b283.png) | ![image](https://user-images.githubusercontent.com/69375071/219570528-ca1da4cc-85a7-48ac-8ae7-caeeaee40fd4.png) |
 
 The picture below shows the successful injection attack.
 
-![image](/img/4.png)
+![image](https://user-images.githubusercontent.com/69375071/219570621-9ecb20a5-be76-4d0f-b608-f2fd7706a733.png)
