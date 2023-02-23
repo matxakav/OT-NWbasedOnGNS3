@@ -1,8 +1,8 @@
 # Adaptive Countermeasure based on SDN for ICS
 
 > This repo is under development ⛏ and maintained by [Ziyao Wang](ziyao.wang@se19.qmul.ac.uk), [Mikel Dean](mdeanoses@ceit.es) and [Santiago Figueroa](sfigueroa@ceit.es) as part of the project: *Adaptive Countermeasure based on Software-Defined Networking for Industrial Control Systems*.
-
-> Check the [meeting minutes](./Minutes/) ✏.
+>
+>> Check the [meeting minutes](./Minutes/) ✏.
 
 ## Introduction
 
@@ -10,7 +10,7 @@ For beginners, this project is basically an *Attack & Defense* practice conducte
 
 For developers, this project demonstrates two countermeasures implemented by [ONOS SDN controller](https://wiki.onosproject.org) against [injection attack on Modbus/TCP](https://github.com/thiagoralves/defcon26) and [disguised LSA attack on OSPF](https://github.com/lizitong67/OSPF_Attack_and_Detection) for a small part of a simulated Industrial Control System.
 
-### OT, ICS, SCADA, PLC Basics
+### OT, ICS, SCADA, PLC, Modbus, OSPF Definitions
 
 Refer to [this document](./Docs/OT_ICS_SCADA_PLC.md).
 
