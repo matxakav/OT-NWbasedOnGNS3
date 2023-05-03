@@ -1,0 +1,19 @@
+{
+    "name": "OpenPLC",
+    "category": "guest",
+    "description": "OpenPLC Runtime version 3",
+    "vendor_name": "OpenPLC",
+    "vendor_url": "https://github.com/thiagoralves/OpenPLC_v3",
+    "documentation_url": "https://github.com/thiagoralves/OpenPLC_v3",
+    "product_name": "OpenPLC",
+    "registry_version": 4,
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+    "usage": "Default username and password is openplc/openplc.",
+    "docker": {
+        "adapters": 1,
+        "image": "wzy318/openplc:latest",
+		"console_type": "http"
+    }
+}

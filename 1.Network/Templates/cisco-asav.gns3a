@@ -1,0 +1,45 @@
+{
+    "appliance_id": "886c4059-4a10-4c62-ab59-7f02beeac292",
+    "name": "Cisco ASAv",
+    "category": "firewall",
+    "description": "The Adaptive Security Virtual Appliance is a virtualized network security solution based on the market-leading Cisco ASA 5500-X Series firewalls. It supports both traditional and next-generation software-defined network (SDN) and Cisco Application Centric Infrastructure (ACI) environments to provide policy enforcement and threat inspection across heterogeneous multisite environments.",
+    "vendor_name": "Cisco",
+    "vendor_url": "http://www.cisco.com/",
+    "documentation_url": "http://www.cisco.com/c/en/us/support/security/virtual-adaptive-security-appliance-firewall/products-installation-guides-list.html",
+    "product_name": "ASAv",
+    "product_url": "http://www.cisco.com/c/en/us/products/security/virtual-adaptive-security-appliance-firewall/index.html",
+    "registry_version": 4,
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+    "usage": "There is no default password and enable password. A default configuration is present. ASAv goes through a double-boot before becoming active. This is normal and expected.",
+    "symbol": ":/symbols/classic/asa.svg",
+    "first_port_name": "Management0/0",
+    "port_name_format": "GigabitEthernet0/{0}",
+    "qemu": {
+        "adapter_type": "virtio-net-pci",
+        "adapters": 8,
+        "ram": 2048,
+        "hda_disk_interface": "virtio",
+        "arch": "x86_64",
+        "console_type": "telnet",
+        "kvm": "require"
+    },
+    "images": [
+        {
+            "filename": "asav9-19-1.qcow2",
+            "version": "9.19.1",
+            "md5sum": "67cd912c9277f0335efe39a98f772225",
+            "filesize": 350748672,
+            "download_url": ""
+        }
+    ],
+    "versions": [
+        {
+            "name": "9.19.1",
+            "images": {
+                "hda_disk_image": "asav9-19-1.qcow2"
+            }
+        }
+    ]
+}

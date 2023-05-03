@@ -1,0 +1,19 @@
+{
+    "name": "Scada-LTS",
+    "category": "guest",
+    "description": "Scada-LTS v2.6.18 + MySQL 8",
+    "vendor_name": "Scada-LTS",
+    "vendor_url": "https://github.com/ScadA-LTS/Scada-LTS/",
+    "documentation_url": "https://github.com/ScadA-LTS/Scada-LTS/wiki/",
+    "product_name": "Scada-LTS",
+    "registry_version": 4,
+    "status": "stable",
+    "maintainer": "GNS3 Team",
+    "maintainer_email": "developers@gns3.net",
+    "usage": "Default username and password is admin/admin.",
+    "docker": {
+        "adapters": 1,
+        "image": "wzy318/scada-lts:latest",
+		"console_type": "http"
+    }
+}
