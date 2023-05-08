@@ -32,7 +32,7 @@ The figure shows the relationships among some ICS-related concepts.
 
 ![image](https://learn.microsoft.com/en-us/azure/defender-for-iot/organizations/media/how-to-set-up-your-network/purdue-model.png)
 
-The figure is the Purdue model for ICS security. A typical ICS spreads across level 0, 1, and 2.
+The figure is the [Purdue model for ICS security](https://learn.microsoft.com/en-us/azure/defender-for-iot/organizations/best-practices/understand-network-architecture/). A typical ICS spreads across level 0, 1, and 2.
 - The level-1 **PLC** controls the level-0 sensors and actuators locally.
 - The level-2 **HMI** implements SCADA to monitor and control the level-1 PLC remotely.
 
@@ -43,10 +43,7 @@ The figure is the Purdue model for ICS security. A typical ICS spreads across le
 
 **Modbus/TCP** is a type of Modbus protocol based on TCP (Transmission Control Protocol) that runs on Ethernet and uses TCP port `502`.
 
-</details>
-
-<details>
-<summary>HTTP</summary>
+https://modbus.org/docs/Modbus_Messaging_Implementation_Guide_V1_0b.pdf
 
 </details>
 
@@ -55,9 +52,53 @@ The figure is the Purdue model for ICS security. A typical ICS spreads across le
 
 **SDN** (Software-Defined Networking) uses software to control the connectivity of network and the flow of traffic, along with inspection and modification of the traffic.
 
+https://opennetworking.org/wp-content/uploads/2013/02/TR_SDN_ARCH_1.0_06062014.pdf
+
+OpenFlow protocol
+
 </details>
 
-### Experimental ICS Network
+<details>
+<summary>KVM, QEMU, and Docker</summary>
+
+type-1/2 hypervisor
+container
+
+</details>
+
+## Deployment of ICS Network in GNS3
+
+### GNS3
+
+installation of GNS3 server
+
+making of appliance templates
+
+configuration of adapters
+
+### Generic Base Network
+
+mapping nodes to appliances
+
+assignment of IP addresses
+
+### Configuration of Nodes
+
+VLAN
+
+IP
+
+OSPF
+
+ACL
+
+NAT
+
+BGP
+
+DNS
+
+### ICS Network
 
 We deployed an experimental ICS network to conduct attack & defense. In our practice, we use [OpenPLC](https://github.com/thiagoralves/OpenPLC_v3) to implement the PLC, and [Scada-LTS](https://github.com/SCADA-LTS/Scada-LTS) to implement the SCADA Human Machine Interface (HMI).
 
@@ -69,44 +110,27 @@ OSPFv2 is applied by routers and layer-3 switches to route within the experiment
 
 Open vSwitch is deployed and connected to ONOS SDN controller to control the network plane. ......
 
-`//TODO add description of adaptive countermeasure`
+OpenPLC and Scada-LTS
 
-The experimental ICS network is IPv4 only.
+Connecting Scada-LTS to OpenPLC
 
-## Deployment of GNS3 Server on EC2 Instance
+Open vSwitch
 
-This repo requires the deployment of 2 AWS EC2 instances:
+ONOS SDN controller
 
-The first instance hosts the GNS3 server running the experimental IT-Network/OT-Network.
-- [Deploy the GNS3 server](./0.GNS3/README.md) on an EC2 instance.
-
-Second hosts the SDN controller.
-
-## Deployment of Experimental ICS Network on GNS3 Server
-
-`//TODO merge the docs`
-
-[Deploy the Experimental IT Network](./1.IT-Network/README.md) on the GNS3 Server.
-
-[Deploy the Experimental OT Network](./2.OT-Network/README.md) on the GNS3 Server.
-
-## Deployment of SDN Controller on EC2 Instance
-
-[Deploy the SDN-Controller](./3.SDN/README.md) connected to the Experimental Base Network.
-
-## Modbus Attack
+## Modbus/TCP Attack
 
 [Conduct and examine the Modbus attack](./4.Modbus/README.md).
 
 [Check the video demonstration on YouTube](https://youtu.be/zfWXR3ZAG7I).
 
-## OSPF Attack
+countermeasure
+
+## HTTP Attack
 
 [Conduct and examine the OSPF attack](./5.OSPF/README.md).
 
-## Adaptive Countermeasure
-
-TBA
+countermeasure
 
 ## Troubleshooting
 
