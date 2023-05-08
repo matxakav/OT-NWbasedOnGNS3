@@ -1,10 +1,14 @@
-# Adaptive Countermeasure based on SDN for ICS
+# Attack & Defence on ICS Network
 
-> This repo is under development ⛏ and maintained by [Ziyao Wang](ziyao.wang@se19.qmul.ac.uk), [Mikel Dean](mdeanoses@ceit.es) and [Santiago Figueroa](sfigueroa@ceit.es) as part of the project: *Adaptive Countermeasure based on Software-Defined Networking for Industrial Control Systems*.
+> This repository is under development ⛏ and maintained by [Ziyao Wang](ziyao.wang@se19.qmul.ac.uk), [Mikel Dean](mdeanoses@ceit.es), and [Santiago Figueroa](sfigueroa@ceit.es) as part of the project: *Adaptive Countermeasure based on Software-Defined Networking for Industrial Control Systems*.
 >
 >> Check the [meeting minutes](./Minutes/) ✏.
 
+// TODO recheck hyperlinks in markdown files.
+
 ## Introduction
+
+This repository demonstrates Attack & Defence targeting Modbus/TCP and HTTP protocols on an <abbr title="Industrial Control System">ICS</abbr> network.
 
 For beginners, this project is basically an *Attack & Defense* practice conducted on a simulated industrial network. SDN is used to implement the adaptive countermeasure to defense the attack.
 
