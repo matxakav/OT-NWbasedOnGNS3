@@ -19,7 +19,7 @@ This project demonstrates Attack & Defence in an ICS[^1] network.
 <details>
 <summary>OT, ICS, SCADA, and PLC</summary>
 
-![image](https://learn.microsoft.com/en-us/azure/defender-for-iot/organizations/media/how-to-set-up-your-network/purdue-model.png)
+![image](https://user-images.githubusercontent.com/69375071/236771378-e44a9520-9c43-43bf-ac56-e89beffeeb41.png)
 
 The figure shows the relationships among some ICS-related concepts.
 
