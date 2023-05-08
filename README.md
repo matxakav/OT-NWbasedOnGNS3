@@ -8,7 +8,7 @@
 
 ## Introduction
 
-This repository demonstrates Attack & Defence targeting Modbus/TCP and HTTP protocols on an <p><abbr title="Industrial Control System">ICS</abbr></p> network.
+This repository demonstrates Attack & Defence targeting Modbus/TCP and HTTP protocols on an <html><abbr title="Industrial Control System">ICS</abbr></html> network.
 
 For beginners, this project is basically an *Attack & Defense* practice conducted on a simulated industrial network. SDN is used to implement the adaptive countermeasure to defense the attack.
 
