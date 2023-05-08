@@ -1,4 +1,4 @@
-# Attack \& Defence in ICS[^1] Network
+# Attack \& Defence in ICS Network
 
 > This repository is under development ⛏ and maintained by [Ziyao Wang](ziyao.wang@se19.qmul.ac.uk), [Mikel Dean](mdeanoses@ceit.es), and [Santiago Figueroa](sfigueroa@ceit.es) as part of the project: *Adaptive Countermeasure based on Software-Defined Networking for Industrial Control Systems*.
 >
@@ -8,16 +8,29 @@
 
 ## Introduction
 
-- This repository demonstrates Attack & Defence in an ICS[^1] network.
+This project demonstrates Attack & Defence in an ICS[^1] network.
+
 - Attack & Defence is conducted on Modbus/TCP[^2] protocol and HTTP protocol.
-- The attack tools we use are [injection attack on Modbus/TCP](https://github.com/thiagoralves/defcon26) and [Slowloris attack on HTTP](https://github.com/gkbrk/slowloris).
-- The countermeasure is implemented with SDN[^3].
+- The attack is a type of [endpoint DoS](https://attack.mitre.org/techniques/T1499/) attack, and the attack tools are [injection on Modbus/TCP](https://github.com/thiagoralves/defcon26/) and [Slowloris on HTTP](https://github.com/gkbrk/slowloris/).
+- The defence is based on SDN[^3], and the countermeasure is deployed on an [ONOS SDN controller](https://wiki.onosproject.org/).
 
-For developers, this project demonstrates two countermeasures implemented by [ONOS SDN controller](https://wiki.onosproject.org) against [injection attack on Modbus/TCP](https://github.com/thiagoralves/defcon26) and [disguised LSA attack on OSPF](https://github.com/lizitong67/OSPF_Attack_and_Detection) for a small part of a simulated Industrial Control System.
+## Background
 
-### OT, ICS, SCADA, PLC, Modbus, OSPF Definitions
+<details>
+<summary>OT, ICS, SCADA, and PLC</summary>
 
-Refer to [this document](./Docs/OT_ICS_SCADA_PLC.md).
+![image](https://learn.microsoft.com/en-us/azure/defender-for-iot/organizations/media/how-to-set-up-your-network/purdue-model.png)
+
+The figure shows the relationships among some ICS-related concepts.
+
+- OT (Operational Technology) refers to any programmable system that can monitor and control devices, processes, and events.
+- ICS (Industrial Control System) is an OT system used to control industrial processes such as manufacturing, production, and distribution.
+- SCADA (Supervisory Control and Data Acquisition) is a type of ICS with HMI (Human Machine Interface) to monitor and control devices over long distances.
+  - SCADA is often found in office.
+- PLC (Programmable Logic Controller) is a type of ICS with programmable memory that stores instructions to control industrial processes locally.
+  - PLC is often found in factory.
+
+</details>
 
 ### Experimental ICS Network
 
@@ -76,8 +89,10 @@ TBA
 
 [Examines the main troubleshooting](./Troubleshootings/README.md)
 
-[^1]: ICS = Industrial Control System.
+## Footnotes
 
-[^2]: TCP = Transmission Control Protocol.
+[^1]: **ICS** (Industrial Control System) is an information system used to control industrial processes such as manufacturing, production, and distribution.
 
-[^3]: SDN = Software-Defined Networking.
+[^2]: **Modbus/TCP** is a type of Modbus protocol based on TCP (Transmission Control Protocol) that runs on Ethernet and uses TCP port `502`.
+
+[^3]: **SDN** (Software-Defined Networking) uses software to control the connectivity of network and the flow of traffic, along with inspection and modification of the traffic.
