@@ -1,4 +1,4 @@
-# Attack \& Defence in ICS Network
+# Attack \& Defence in ICS[^1] Network
 
 > This repository is under development ⛏ and maintained by [Ziyao Wang](ziyao.wang@se19.qmul.ac.uk), [Mikel Dean](mdeanoses@ceit.es), and [Santiago Figueroa](sfigueroa@ceit.es) as part of the project: *Adaptive Countermeasure based on Software-Defined Networking for Industrial Control Systems*.
 >
@@ -9,15 +9,11 @@
 ## Introduction
 
 - This repository demonstrates Attack & Defence in an ICS[^1] network.
-- Attack & Defence is conducted on Modbus/TCP protocol and HTTP protocol.
+- Attack & Defence is conducted on Modbus/TCP[^2] protocol and HTTP protocol.
 - The attack tools we use are [injection attack on Modbus/TCP](https://github.com/thiagoralves/defcon26) and [Slowloris attack on HTTP](https://github.com/gkbrk/slowloris).
-- The countermeasure is implemented with SDN.
-
-For beginners, this project is basically an *Attack & Defense* practice conducted on a simulated industrial network. SDN is used to implement the adaptive countermeasure to defense the attack.
+- The countermeasure is implemented with SDN[^3].
 
 For developers, this project demonstrates two countermeasures implemented by [ONOS SDN controller](https://wiki.onosproject.org) against [injection attack on Modbus/TCP](https://github.com/thiagoralves/defcon26) and [disguised LSA attack on OSPF](https://github.com/lizitong67/OSPF_Attack_and_Detection) for a small part of a simulated Industrial Control System.
-
-[^1]: Industrial Control System.
 
 ### OT, ICS, SCADA, PLC, Modbus, OSPF Definitions
 
@@ -79,3 +75,9 @@ TBA
 ## Troubleshooting
 
 [Examines the main troubleshooting](./Troubleshootings/README.md)
+
+[^1]: ICS = Industrial Control System.
+
+[^2]: TCP = Transmission Control Protocol.
+
+[^3]: SDN = Software-Defined Networking.
