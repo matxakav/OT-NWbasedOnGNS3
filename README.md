@@ -1,18 +1,23 @@
-# Attack & Defence on ICS Network
+# Attack \& Defence in ICS Network
 
 > This repository is under development ⛏ and maintained by [Ziyao Wang](ziyao.wang@se19.qmul.ac.uk), [Mikel Dean](mdeanoses@ceit.es), and [Santiago Figueroa](sfigueroa@ceit.es) as part of the project: *Adaptive Countermeasure based on Software-Defined Networking for Industrial Control Systems*.
 >
 >> Check the [meeting minutes](./Minutes/) ✏.
 
-// TODO recheck hyperlinks in markdown files.
+`//TODO recheck hyperlinks in markdown files`
 
 ## Introduction
 
-This repository demonstrates Attack & Defence targeting Modbus/TCP and HTTP protocols on an <html><abbr title="Industrial Control System">ICS</abbr></html> network.
+- This repository demonstrates Attack & Defence in an ICS[^1] network.
+- Attack & Defence is conducted on Modbus/TCP protocol and HTTP protocol.
+- The attack tools we use are [injection attack on Modbus/TCP](https://github.com/thiagoralves/defcon26) and [Slowloris attack on HTTP](https://github.com/gkbrk/slowloris).
+- The countermeasure is implemented with SDN.
 
 For beginners, this project is basically an *Attack & Defense* practice conducted on a simulated industrial network. SDN is used to implement the adaptive countermeasure to defense the attack.
 
 For developers, this project demonstrates two countermeasures implemented by [ONOS SDN controller](https://wiki.onosproject.org) against [injection attack on Modbus/TCP](https://github.com/thiagoralves/defcon26) and [disguised LSA attack on OSPF](https://github.com/lizitong67/OSPF_Attack_and_Detection) for a small part of a simulated Industrial Control System.
+
+[^1]: Industrial Control System.
 
 ### OT, ICS, SCADA, PLC, Modbus, OSPF Definitions
 
