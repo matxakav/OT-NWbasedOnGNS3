@@ -4,20 +4,18 @@
 >
 >> Check the [meeting minutes](./Minutes/) ✏.
 
-`//TODO recheck hyperlinks in markdown files`
-
-## Introduction
+- [Attack \& Defence in ICS Network](#attack--defence-in-ics-network)
+	- [ICS Network](#ics-network)
+	- [Modbus/TCP](#modbustcp)
+	- [HTTP](#http)
+	- [OSPF](#ospf)
+	- [TODO](#todo)
 
 This project demonstrates Attack & Defence in an ICS (Industrial Control System) network.
 
 - Attack & Defence is conducted on Modbus/TCP protocol and HTTP protocol.
 - The attack is a type of [endpoint Denial of Service](https://attack.mitre.org/techniques/T1499/) attack, and the attack tools are [injection on Modbus/TCP](https://github.com/thiagoralves/defcon26/) and [Slowloris on HTTP](https://github.com/gkbrk/slowloris/).
 - The defence is based on SDN (Software-Defined Networking), and the countermeasure is deployed on an [ONOS SDN controller](https://wiki.onosproject.org/).
-
-## Background
-
-<details>
-<summary>OT, ICS, SCADA, and PLC</summary>
 
 ![image](https://user-images.githubusercontent.com/69375071/236771833-c99033d5-a1b3-4bc2-8c9b-ee2e22c74495.png)
 
@@ -36,69 +34,7 @@ The figure is the [Purdue model for ICS security](https://learn.microsoft.com/en
 - The level-1 **PLC** controls the level-0 sensors and actuators locally.
 - The level-2 **HMI** implements SCADA to monitor and control the level-1 PLC remotely.
 
-</details>
-
-<details>
-<summary>Modbus/TCP</summary>
-
-**Modbus/TCP** is a type of Modbus protocol based on TCP (Transmission Control Protocol) that runs on Ethernet and uses TCP port `502`.
-
-https://modbus.org/docs/Modbus_Messaging_Implementation_Guide_V1_0b.pdf
-
-</details>
-
-<details>
-<summary>SDN</summary>
-
-**SDN** (Software-Defined Networking) uses software to control the connectivity of network and the flow of traffic, along with inspection and modification of the traffic.
-
-https://opennetworking.org/wp-content/uploads/2013/02/TR_SDN_ARCH_1.0_06062014.pdf
-
-OpenFlow protocol
-
-</details>
-
-<details>
-<summary>KVM, QEMU, and Docker</summary>
-
-type-1/2 hypervisor
-container
-
-</details>
-
-## Deployment of ICS Network in GNS3
-
-### GNS3
-
-installation of GNS3 server
-
-making of appliance templates
-
-configuration of adapters
-
-### Generic Base Network
-
-mapping nodes to appliances
-
-assignment of IP addresses
-
-### Configuration of Nodes
-
-VLAN
-
-IP
-
-OSPF
-
-ACL
-
-NAT
-
-BGP
-
-DNS
-
-### ICS Network
+## ICS Network
 
 We deployed an experimental ICS network to conduct attack & defense. In our practice, we use [OpenPLC](https://github.com/thiagoralves/OpenPLC_v3) to implement the PLC, and [Scada-LTS](https://github.com/SCADA-LTS/Scada-LTS) to implement the SCADA Human Machine Interface (HMI).
 
@@ -118,20 +54,24 @@ Open vSwitch
 
 ONOS SDN controller
 
-## Modbus/TCP Attack
+## Modbus/TCP
 
 [Conduct and examine the Modbus attack](./4.Modbus/README.md).
 
 [Check the video demonstration on YouTube](https://youtu.be/zfWXR3ZAG7I).
 
-countermeasure
+Deploy countermeasure.
 
-## HTTP Attack
+## HTTP
 
 [Conduct and examine the OSPF attack](./5.OSPF/README.md).
 
-countermeasure
+Deploy countermeasure.
 
-## Troubleshooting
+## OSPF
 
-[Examines the main troubleshooting](./Troubleshootings/README.md)
+attacker not implemented
+
+## TODO
+
+`//TODO recheck hyperlinks in markdown files`

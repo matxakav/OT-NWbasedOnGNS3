@@ -1,5 +1,46 @@
 # Experimental OT Network on GNS3
 
+
+## Deployment of ICS Network in GNS3
+
+### GNS3
+
+installation of GNS3 server
+
+making of appliance templates
+
+configuration of adapters
+
+### Generic Base Network
+
+mapping nodes to appliances
+
+assignment of IP addresses
+
+### Configuration of Nodes
+
+VLAN
+
+IP
+
+OSPF
+
+ACL
+
+NAT
+
+BGP
+
+DNS
+
+
+
+
+
+
+
+
+
 ## Network Description
 
 ![image](https://user-images.githubusercontent.com/69375071/219404569-1387655b-0fcf-4302-a242-8390641dc1f0.png)

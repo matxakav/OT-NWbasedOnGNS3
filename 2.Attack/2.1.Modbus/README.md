@@ -4,6 +4,18 @@ In this article, we introduce the Modbus protocol, discuss the weakness of Modbu
 
 ## Modbus Protocol
 
+
+**Modbus/TCP** is a type of Modbus protocol based on TCP (Transmission Control Protocol) that runs on Ethernet and uses TCP port `502`.
+
+https://modbus.org/docs/Modbus_Messaging_Implementation_Guide_V1_0b.pdf
+
+`//TODO`
+
+
+
+
+
+
 Modbus is a simple Master-Slave protocol designed for communications between Programmable Logic Controllers (PLC) and Human Machine Interfaces (HMI) within Industrial Control Systems (ICS). Modbus operates on data link layer (layer 2) and is independent of physical layer (layer 1), so it can be deployed on both Serial and Ethernet.
 
 The Application Data Unit (ADU) of Modbus has 3 implementations: Modbus/RTU, Modbus/ASCII, and Modbus/TCP. The first two protocols operate on Serial, while Modbus/TCP runs on Ethernet. The picture below shows the ADU of Modbus/RTU protocol. In this project, we use Modbus/TCP for OpenPLC and ScadaLTS to communicate over Ethernet.

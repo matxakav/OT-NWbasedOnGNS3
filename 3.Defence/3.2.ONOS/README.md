@@ -1,8 +1,20 @@
+
+**SDN** (Software-Defined Networking) uses software to control the connectivity of network and the flow of traffic, along with inspection and modification of the traffic.
+
+https://opennetworking.org/wp-content/uploads/2013/02/TR_SDN_ARCH_1.0_06062014.pdf
+
+OpenFlow protocol
+
+
+`//TODO`
+
+
+
 # Controller installation
 
 - [Controller installation](#controller-installation)
-  - [Prerequisites](#prerequisites)
-  - [Deploy OpenDayLight](#deploy-opendaylight)
+	- [Prerequisites](#prerequisites)
+	- [Deploy OpenDayLight](#deploy-opendaylight)
 
 This section sets out the procedures for downloading and configuring the driver..
 
