@@ -1,139 +1,174 @@
-# Deployment of GNS3 server on EC2 instance
+# Install GNS3 Client and Server
 
-- [Deployment of GNS3 server on EC2 instance](#deployment-of-gns3-server-on-ec2-instance)
-	- [Deploy GNS3 Server](#deploy-gns3-server)
-	- [Connect to GNS3 Server from GNS3 client](#connect-to-gns3-server-from-gns3-client)
-	- [How to bypass a network of restrictions by tunneling](#how-to-bypass-a-network-of-restrictions-by-tunneling)
-	- [To Do](#to-do)
+- [Install GNS3 Client and Server](#install-gns3-client-and-server)
+	- [Install GNS3 Client](#install-gns3-client)
+	- [Install GNS3 Server](#install-gns3-server)
+		- [Install Docker Engine](#install-docker-engine)
+	- [Start GNS3 Server](#start-gns3-server)
+	- [Connect GNS3 Client to Server](#connect-gns3-client-to-server)
 
+GNS3 is a network emulator. It is more customisable than Mininet, and more professional than Packet Tracer.
 
+GNS3 implements client/server architecture.
 
-KVM, QEMU, and Docker
+- A GNS3 server emulates a network in a headless Linux.
+- A GNS3 client in a laptop connects to the GNS3 server to visualise, configure, test, and troubleshoot the network.
 
+Docker engine is an optional dependence (plugin) of GNS3 server, but it is mandatory for our ICS network.
 
+## Install GNS3 Client
 
+1. Go to https://gns3.com and register an account with an educational email address.
+2. Login and then [download the GNS3 client](https://gns3.com/software/download).
+3. Install the package.
+   - Mac users refer to [this discussion](https://gns3.com/install-error-macos-ventura/) in case of installation error.
 
-The purpose of this repository is to deploy a GNS3 server on an EC2 instance of AWS. The following figure shows the basic architecture of the deployment to be implemented:
+## Install GNS3 Server
 
-![image](https://user-images.githubusercontent.com/69375071/210196949-15232346-a583-4ab8-a562-4d7811d152be.png)
+Ubuntu users refer to the [official guide](https://docs.gns3.com/docs/getting-started/installation/linux/) to install GNS3 server in Ubuntu.
 
-## Deploy GNS3 Server
+```sh
+# add third-party repository and install gns3-server
+sudo add-apt-repository ppa:gns3/ppa
+sudo apt update
+sudo apt install gns3-server
 
-To perform the right deployment follow each of the following steps:
-
-1. We assume that we have an EC2 instance deployed with Ubuntu Server 20.04 as OS:
-
-![image](https://user-images.githubusercontent.com/69375071/210196969-a4053982-94d3-4669-beae-49b45a0f73e5.png)
-
-2. The following rules apply for opening incoming connections from:
-
-    | Type        | Port      | Description                                                     |
-    |-------------|-----------|-----------------------------------------------------------------|
-    | SSH         | 22        | Instance management                                             |
-    | Custom TCP  | 3080      | GNS3 client-server connection                                   |
-    | Custom TCP  | 5000-5030 | Telnet connection for the device management created within GNS3 |
-
-    - Example of applied rules
-
-![image](https://user-images.githubusercontent.com/69375071/210196983-7269b43f-6c0d-40cb-b9bd-cafd5c187720.png)
-
-3. GNS3 server installation:
-
-    ```console
-    sudo apt update
-    sudo add-apt-repository ppa:gns3/ppa
-    sudo apt install gns3-server
-    ```
-
-    - It is recommended accept both options as part of the installation process:
-
-    | Users able to run GNS3| Users able to capture packages |
-    |-------------|-----------|
-    | ![image](https://user-images.githubusercontent.com/69375071/210197009-f2be56b9-9040-4600-87fb-83d1a92e90df.png) | ![image](https://user-images.githubusercontent.com/69375071/210197024-ff5d286f-4ba1-4772-a1c8-7a4051f21a93.png) |
-
-     > **Note:** To install specific versions use for instance: `sudo pip3 install gns3-server==2.2.34`
-
-4. IOU (IOS over Unix) is an internal Cisco tool for simulating the ASICs in Cisco Switches. This enables you to play with Layer 2 switching in the Labs:
-
-    ```console
-    sudo dpkg --add-architecture i386
-    sudo apt update
-    sudo apt install gns3-iou
-    ```
-
-5. [Install Docker CE on Ubuntu 22.04|20.04|18.04](https://docs.docker.com/engine/install/ubuntu/).
-
-    - Verify installation by checking Docker version:
-
-        ```console
-        docker version
-        ```
-
-    - After installing Docker and IOU, add your user to the following groups:
-
-        ```console
-        for i in ubridge libvirt kvm docker; do
-            sudo usermod -aG $i $USER
-        done
-        ```
-
-6. Run GNS3 server:
-
-    ```console
-    gns3server -q --daemon
-    ```
-
-    >Note: `-q` for no console logging, `--daemon` runs gns3server as a daemon service that keeps running when the console exits
-
-   - It is now possible to access the GNS3 service:
-
-    ```console
-    http://aws_instance_ip:3080
-    ```
-
-   - Verify the service:
-
-![image](https://user-images.githubusercontent.com/69375071/210197180-6d23f0f8-dc3b-4803-b45c-cdf1a0ed3da1.png)
-
-## Connect to GNS3 Server from GNS3 client
-
-1. Now, it is time to connect to the server via the GNS3 client and configure the preferences properly.
-
-![image](https://user-images.githubusercontent.com/69375071/210197203-ee05d661-6bae-4cb8-8257-27ff49a66f67.png)
-
-   - Default username/password:
-
-    ```console
-    username: gns3
-    password: gns3
-    ```
-
-2. Verify that the server has connected properly.
-
-![image](https://user-images.githubusercontent.com/69375071/210197229-e9904096-9f2e-4f78-80b2-72a93303947a.png)
-
-## How to bypass a network of restrictions by tunneling
-
-If we are under a restrictive network with firewalls blocking the network, the following tunneling is proposed to bypass it.
-
-```console
-ssh -N -i key.pem -L localhost:3080:private_ip_ec2:3080 username_ec2@public_ip_ec2
+# add current user to groups
+sudo usermod -aG ubridge $USER
+sudo usermod -aG libvirt $USER
+sudo usermod -aG kvm $USER
+sudo usermod -aG wireshark $USER
 ```
 
-For instance:
+Generic Linux users (except Ubuntu/Debian) follow the instructions below.
 
-```console
-ssh -N -i .\openstack.pem -L localhost:3080:172.31.88.200:3080 ubuntu@54.89.220.232
+1. Install python3, pip3, [qemu](https://www.qemu.org/), and [libvirt](https://libvirt.org/) using the package manager of your linux distro.
+2. Make and install [ubridge](https://github.com/GNS3/ubridge/).
+   - Install pcap library (libpcap) and pthread library (libpthread) using your package manager.
+
+```sh
+git clone https://github.com/GNS3/ubridge.git
+cd ubridge
+make
+sudo make install
+
+# if "sudo make install" fails (os name not recognised)
+sudo mkdir -p /usr/local/bin/
+sudo cp ubridge /usr/local/bin/
+sudo chmod 755 /usr/local/bin/ubridge
 ```
 
->**Note:** *For this mechanism to work, at least the access through port 22 must be open.*
+3. Make and install [dynamips](https://github.com/GNS3/dynamips/).
+   - Install elf library (libelf) and [specified pcap library](https://github.com/GNS3/dynamips/#build-dependencies) (if necessary) using your package manager.
 
-- The following figure shows how the client must be configured so that the traffic is redirected through the tunnel:
+```sh
+git clone https://github.com/GNS3/dynamips.git
+cd dynamips
+mkdir build
+cd build
+cmake ..
+sudo make install
+```
 
-![image](https://user-images.githubusercontent.com/69375071/210197244-b8121b0f-9b41-4e6b-9eb1-fa5647685811.png)
+4. Make and install [vpcs](https://github.com/GNS3/vpcs/).
 
-## To Do
+```sh
+git clone https://github.com/GNS3/vpcs.git
+cd vpcs/src
+./mk.sh 64
+sudo cp vpcs /usr/local/bin/
+sudo chmod 755 /usr/local/bin/vpcs
+```
 
-1. Enable secure connection between the client and server via TLS
-2. Document how to apply rules on aws to open port
-3. Document how to add a new router using binary files
+5. Install [gns3-server](https://github.com/GNS3/gns3-server/) via pip3.
+
+```sh
+git clone https://github.com/GNS3/gns3-server.git
+cd gns3-server
+
+# you may ignore the pip warning
+sudo python3 -m pip install .
+```
+
+### Install Docker Engine
+
+Ubuntu users refer to the [official guide](https://docs.docker.com/engine/install/ubuntu/) to install Docker Engine in Ubuntu. The guide also covers installation in CentOS, Debian, Fedora, RHEL, and SLES.
+
+```sh
+# uninstall old version of docker engine
+sudo apt purge docker docker-engine docker.io containerd runc
+
+# install tools if not exist
+sudo apt update
+sudo apt install ca-certificates curl gnupg
+
+# import docker's gpg public key
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+# add third-party repository
+echo "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+# install docker
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+# add current user to docker group
+sudo usermod -aG docker $USER
+```
+
+## Start GNS3 Server
+
+It is recommended to run gns3server as a service with nonroot user if you are a Ubuntu user, while generic linux users (except for Ubuntu/Debian) can run gns3server as a service with the root user.
+
+```sh
+# Ubuntu only, change "$USER" to your username
+sudo cat > /lib/systemd/system/gns3server.service << EOF
+[Unit]
+Description=GNS3 server
+After=network-online.target
+Wants=network-online.target
+Conflicts=shutdown.target
+
+[Service]
+User=$USER
+Group=$USER
+PermissionsStartOnly=true
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+EnvironmentFile=/etc/environment
+ExecStart=/usr/bin/gns3server
+ExecReload=/bin/kill -s HUP $MAINPID
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=16384
+
+[Install]
+WantedBy=multi-user.target
+EOF
+
+# apply to all
+sudo systemctl daemon-reload
+sudo systemctl enable --now gns3server
+```
+
+## Connect GNS3 Client to Server
+
+Refer to [official configuration file](https://docs.gns3.com/docs/using-gns3/administration/gns3-server-configuration-file/) of GNS3 server if you want to tune some parameters.
+
+By default, GNS3 server listens on tcp:0.0.0.0:3080, and telnet consoles listen on ports 5000 to 5050. Config firewall to permit the traffic.
+
+```sh
+# Ubuntu
+sudo ufw allow 3080,5000:5050/tcp
+
+# CentOS
+sudo firewall-cmd --zone=public --add-port=3080,5000:5050/tcp --permanent
+sudo firewall-cmd reload
+```
+
+![image](/assets/GNS3%20CS%20Connection.png)
+
+The figure shows how to use GNS3 client to connect to GNS3 server.
+
+By default, GNS3 server uses HTTP auth with username/password: gns3/gns3. You may configure it over HTTPS if you have a domain name.

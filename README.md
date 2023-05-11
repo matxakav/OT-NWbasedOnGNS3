@@ -4,10 +4,14 @@
 >
 >> Check the [meeting minutes](./Minutes/) ✏.
 
+---
+
 - [Attack \& Defence in ICS Network](#attack--defence-in-ics-network)
 	- [ICS Network](#ics-network)
 	- [Modbus/TCP](#modbustcp)
 	- [HTTP](#http)
+
+---
 
 This project shows Attack & Defence in an ICS (Industrial Control System) network.
 
@@ -41,18 +45,20 @@ The figure is an ICS network topology where Attack & Defence takes place.
 - [Open vSwitch](https://www.openvswitch.org/) (implements SDN "client")
 - [ONOS SDN controller](https://wiki.onosproject.org/) (implements SDN "server")
 
+---
+
 ## ICS Network
 
-1. [Install GNS3 client and server]
-2. [Deploy generic base network in GNS3 server]
-3. [Deploy ICS network in GNS3 server]
+1. [Install GNS3 client and server](/network/gns3/README.md)
+2. [Deploy generic base network in GNS3 server](/network/base/README.md)
+3. [Deploy ICS network in GNS3 server](/network/ics/README.md)
 
 ## Modbus/TCP
 
-1. [Conduct the injection attack on Modbus/TCP](./4.Modbus/README.md)
-2. [Deploy countermeasure in ONOS against Modbus/TCP DoS attack]
+1. [Conduct the injection attack on Modbus/TCP](/modbus/attack/README.md)
+2. [Deploy countermeasure in ONOS against Modbus/TCP DoS attack](/modbus/defence/README.md)
 
 ## HTTP
 
-1. [Conduct the Slowloris attack on HTTP](./5.OSPF/README.md).
-2. [Deploy countermeasure in ONOS against slow HTTP attack]
+1. [Conduct the Slowloris attack on HTTP](/http/attack/README.md)
+2. [Deploy countermeasure in ONOS against slow HTTP attack](/http/defence/README.md)
