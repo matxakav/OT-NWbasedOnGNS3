@@ -123,7 +123,7 @@ sudo usermod -aG docker $USER
 It is recommended to run gns3server as a service with nonroot user if you are a Ubuntu user, while generic linux users (except for Ubuntu/Debian) can run gns3server as a service with the root user.
 
 ```sh
-# Ubuntu only, change "$USER" to your username
+# change "root" to your username if you are using Ubuntu
 sudo cat > /lib/systemd/system/gns3server.service << EOF
 [Unit]
 Description=GNS3 server
@@ -132,8 +132,8 @@ Wants=network-online.target
 Conflicts=shutdown.target
 
 [Service]
-User=$USER
-Group=$USER
+User=root
+Group=root
 PermissionsStartOnly=true
 AmbientCapabilities=CAP_NET_BIND_SERVICE
 EnvironmentFile=/etc/environment
@@ -147,7 +147,7 @@ LimitNOFILE=16384
 WantedBy=multi-user.target
 EOF
 
-# apply to all
+# start gns3-server as a service
 sudo systemctl daemon-reload
 sudo systemctl enable --now gns3server
 ```
@@ -171,4 +171,4 @@ sudo firewall-cmd reload
 
 The figure shows how to use GNS3 client to connect to GNS3 server.
 
-By default, GNS3 server uses HTTP auth with username/password: gns3/gns3. You may configure it over HTTPS if you have a domain name.
+By default, GNS3 server uses HTTP auth with username/password: `gns3`/`gns3`. You may configure it over HTTPS if you have a domain name.

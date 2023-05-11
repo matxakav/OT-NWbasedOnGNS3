@@ -1,8 +1,8 @@
-# Experimental IT Network on GNS3
+# Deploy Generic Base Network in GNS3
 
-Portable project of the base network is available on [Google Drive](https://drive.google.com/drive/folders/1ooRXrQyf2Lz0mGtcHeRZjTrhDW_SKV4w).
+Portable project of the generic base network is available on [Google Drive](https://drive.google.com/drive/folders/1ooRXrQyf2Lz0mGtcHeRZjTrhDW_SKV4w/).
 
-## Network Description
+## Generic Base Network
 
 ![image](https://user-images.githubusercontent.com/69375071/210197317-12a7553f-9dea-4a2c-9336-2f2b721b06b8.png)
 
@@ -13,15 +13,15 @@ Portable project of the base network is available on [Google Drive](https://driv
 5. The *edge router* connected *DMZ* to the rest of the enterprise network and to the Internet. The DMZ consists of the *Cisco ASA firewall*, layer 3 Cisco switch and the *DMZ* server.
 6. The enterprise is connected to the ISP1 and ISP2 routers via enterprise *edge router*. Both *ISP* routers  are bridged via *GNS3 clouds* to the server Ethernet Card in order to simulate connection to the Internet.
 
-## GNS3 Appliances Import
+## Import GNS3 Appliances
 
 - Follow [this document](./Appliances/README.md) to import all required appliances to GNS3 server.
 
-## Network Deployment
+## Deploy Generic Base Network
 
-- Follow [this document](./Deployment/README.md) to map devices to appliances and connect all devices.
+- Follow [this document](./Deployment/README.md) to map nodes to appliances and connect all nodes.
 
-## Network Configuration
+## Configure Nodes
 
 - Core
   - End Devices: [PC1 - 4](./Configuration/PC.md)
