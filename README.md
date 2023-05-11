@@ -17,7 +17,7 @@ This project shows Attack & Defence in an ICS (Industrial Control System) networ
 - The attack is a type of [endpoint Denial of Service](https://attack.mitre.org/techniques/T1499/) attack, and the attack tools are [injection on Modbus/TCP](https://github.com/thiagoralves/defcon26/) and [Slowloris on HTTP](https://github.com/gkbrk/slowloris/).
 - The defence is based on SDN (Software-Defined Networking), and the countermeasure is deployed on an [ONOS SDN controller](https://wiki.onosproject.org/) to control multiple [Open vSwitches](https://www.openvswitch.org/).
 
-![image](https://user-images.githubusercontent.com/69375071/236771833-c99033d5-a1b3-4bc2-8c9b-ee2e22c74495.png)
+![image](/assets/ICS%20Concept.png)
 
 The figure shows the relationships among some ICS-related concepts.
 
@@ -34,15 +34,12 @@ The figure is [Purdue model for ICS security](https://learn.microsoft.com/en-us/
 
 ## ICS Network
 
-![image](https://github.com/sfl0r3nz05/OT-NWbasedOnGNS3/assets/69375071/197b956b-1c80-443e-98b0-2a98aabe343b)
-
-
 ![image](https://github.com/sfl0r3nz05/OT-NWbasedOnGNS3/assets/69375071/4637dca5-9f13-4d24-bf6b-501057eed41e)
 
+The figure is an ICS network deployed in GNS3 server where Attack & Defence takes place.
 
-An ICS network is deployed in GNS3 server for Attack & Defence to take place.
-
-We deployed an experimental ICS network to conduct attack & defense. In our practice, we use [OpenPLC](https://github.com/thiagoralves/OpenPLC_v3) to implement the PLC, and [Scada-LTS](https://github.com/SCADA-LTS/Scada-LTS) to implement the SCADA Human Machine Interface (HMI).
+- [OpenPLC](https://github.com/thiagoralves/OpenPLC_v3/) (implement PLC)
+- [Scada-LTS](https://github.com/SCADA-LTS/Scada-LTS/) (implement SCADA)
 
 Our experimental ICS network can be considered to sit between level 1 and level 2 of the OT network in Purdue reference model, while preserving some kind of portability.
 
