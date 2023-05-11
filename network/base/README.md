@@ -1,4 +1,4 @@
-# Deploy Generic Base Network in GNS3
+# Deploy Generic Base Network in GNS3 Server
 
 Portable project of the generic base network is available on [Google Drive](https://drive.google.com/drive/folders/1ooRXrQyf2Lz0mGtcHeRZjTrhDW_SKV4w/).
 

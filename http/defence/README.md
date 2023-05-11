@@ -1,0 +1,1 @@
+# Countermeasure against Slowloris on HTTP

@@ -1,49 +1,8 @@
-# Experimental OT Network on GNS3
-
-
-## Deployment of ICS Network in GNS3
-
-### GNS3
-
-installation of GNS3 server
-
-making of appliance templates
-
-configuration of adapters
-
-### Generic Base Network
-
-mapping nodes to appliances
-
-assignment of IP addresses
-
-### Configuration of Nodes
-
-VLAN
-
-IP
-
-OSPF
-
-ACL
-
-NAT
-
-BGP
-
-DNS
-
-
-
-
-
-
-
-
+# Deploy ICS Network in GNS3 Server
 
 ## Network Description
 
-![image](https://user-images.githubusercontent.com/69375071/219404569-1387655b-0fcf-4302-a242-8390641dc1f0.png)
+![image](/assets/ICS%20Network.png)
 
 The OT network is forked and developed from the IT network, where all VPCS's are replaced by docker containers (i.e., OpenPLC, ScadaLTS, and KaliLinux). The reasons why we use docker containers instead of [ubuntu cloud images](https://cloud-images.ubuntu.com) to simulate these end devices are as follows.
 
@@ -52,14 +11,16 @@ The OT network is forked and developed from the IT network, where all VPCS's are
 
 > Docker containers in GNS3 server are `versatile`. They are created on project opening and removed on project closing, so all changes made to the containers are not persistent.
 
-## Deployment of OT Network
+## Deployment of ICS Network
 
 Pull the required docker images.
 
-```bash
-docker pull scadalts/scadalts:v2.6.18-mysql-8
-docker pull sflorenz05/open-plc:v0.3
+```sh
 docker pull wzy318/kalilinux:latest
+docker pull wzy318/openplc:latest
+docker pull wzy318/scada-lts:latest
+docker pull gns3/openvswitch:latest
+docker pull onosproject/onos:2.7.0
 ```
 
 > Special credit to Scada-LTS team for their support in [troubleshooting and creating](https://github.com/SCADA-LTS/Scada-LTS/issues/2473) of scadalts/scadalts:v2.6.18-mysql-8 docker image.
