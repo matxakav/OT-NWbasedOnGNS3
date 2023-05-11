@@ -8,13 +8,12 @@
 	- [ICS Network](#ics-network)
 	- [Modbus/TCP](#modbustcp)
 	- [HTTP](#http)
-	- [//TODO](#todo)
 
 This project shows Attack & Defence in an ICS (Industrial Control System) network.
 
 - The ICS network is deployed in [GNS3 server](https://github.com/GNS3/gns3-server/), based on a [generic base network](https://brezular.com/2017/09/07/enterprise-network-on-gns3-part-1-introduction/).
 - Attack & Defence is conducted on [Modbus/TCP protocol](https://modbus.org/docs/Modbus_Messaging_Implementation_Guide_V1_0b.pdf/) and HTTP protocol.
-- The attack is a type of [endpoint Denial of Service](https://attack.mitre.org/techniques/T1499/) attack, and the attack tools are [injection on Modbus/TCP](https://github.com/thiagoralves/defcon26/) and [Slowloris on HTTP](https://github.com/gkbrk/slowloris/).
+- The attack is a type of [endpoint DoS (Denial of Service)](https://attack.mitre.org/techniques/T1499/) attack, and the attack tools are [injection on Modbus/TCP](https://github.com/thiagoralves/defcon26/) and [Slowloris on HTTP](https://github.com/gkbrk/slowloris/).
 - The defence is based on SDN (Software-Defined Networking), and the countermeasure is deployed on an [ONOS SDN controller](https://wiki.onosproject.org/) to control multiple [Open vSwitches](https://www.openvswitch.org/).
 
 ![image](/assets/ICS%20Concept.png)
@@ -32,45 +31,28 @@ The figure is [Purdue model for ICS security](https://learn.microsoft.com/en-us/
 - **PLC** is often found in factory. The **PLC** in level 1 locally controls the sensors and actuators in level 0.
 - **SCADA** is often found in office. The **HMI** (implements **SCADA**) in level 2 remotely monitors and controls the **PLC** in level 1.
 
-## ICS Network
-
 ![image](/assets/ICS%20Topology.png)
 
-The figure is an ICS network deployed in GNS3 server where Attack & Defence takes place.
+The figure is an ICS network topology where Attack & Defence takes place.
 
-- [OpenPLC](https://github.com/thiagoralves/OpenPLC_v3/) (implement PLC)
-- [Scada-LTS](https://github.com/SCADA-LTS/Scada-LTS/) (implement SCADA)
+- [OpenPLC](https://github.com/thiagoralves/OpenPLC_v3/) (implements PLC)
+- [Scada-LTS](https://github.com/SCADA-LTS/Scada-LTS/) (implements SCADA)
+- [KaliLinux](https://www.kali.org/) (implements attacker)
+- [Open vSwitch](https://www.openvswitch.org/) (implements SDN "client")
+- [ONOS SDN controller](https://wiki.onosproject.org/) (implements SDN "server")
 
-Our experimental ICS network can be considered to sit between level 1 and level 2 of the OT network in Purdue reference model, while preserving some kind of portability.
+## ICS Network
 
-Scada-LTS exchanges Modbus/TCP Application Data Units (ADUs) with OpenPLC to monitor and control OpenPLC. Injection attack is performed by directly flooding Modus/TCP ADUs that can manually turn the heater on to OpenPLC.
-
-OSPFv2 is applied by routers and layer-3 switches to route within the experimental ICS network. Disguised LSA attack is performed by first triggering the fightback mechanism of the victim router and then sending malicious LSA disguised as its fightback LSA to the target router.
-
-Open vSwitch is deployed and connected to ONOS SDN controller to control the network plane. ......
-
-OpenPLC and Scada-LTS
-
-Connecting Scada-LTS to OpenPLC
-
-Open vSwitch
-
-ONOS SDN controller
+1. [Install GNS3 client and server]
+2. [Deploy generic base network in GNS3 server]
+3. [Deploy ICS network in GNS3 server]
 
 ## Modbus/TCP
 
-[Conduct and examine the Modbus attack](./4.Modbus/README.md).
-
-[Check the video demonstration on YouTube](https://youtu.be/zfWXR3ZAG7I).
-
-Deploy countermeasure.
+1. [Conduct the injection attack on Modbus/TCP](./4.Modbus/README.md)
+2. [Deploy countermeasure in ONOS against Modbus/TCP DoS attack]
 
 ## HTTP
 
-[Conduct and examine the OSPF attack](./5.OSPF/README.md).
-
-Deploy countermeasure.
-
-## //TODO
-
-`//TODO recheck hyperlinks in markdown files`
+1. [Conduct the Slowloris attack on HTTP](./5.OSPF/README.md).
+2. [Deploy countermeasure in ONOS against slow HTTP attack]
