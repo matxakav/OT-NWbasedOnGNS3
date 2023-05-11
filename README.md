@@ -34,7 +34,7 @@ The figure is [Purdue model for ICS security](https://learn.microsoft.com/en-us/
 
 ## ICS Network
 
-//ICS network picture
+![image](https://github.com/sfl0r3nz05/OT-NWbasedOnGNS3/assets/69375071/197b956b-1c80-443e-98b0-2a98aabe343b)
 
 An ICS network is deployed in GNS3 server for Attack & Defence to take place.
 
