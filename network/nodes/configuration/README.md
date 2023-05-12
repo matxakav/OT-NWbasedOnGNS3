@@ -5,7 +5,9 @@
   - Access Layer: [OpenSwitch-Acc-I & II](./OpenSwitch-Acc.md)
   - Distribution Layer: [vEOS-Dis-I & II](./vEOS-Dis.md)
   - Core Layer: [vIOS-Core-I & II](./vIOS-Core.md)
-- Firewall: [ASAv-I](./ASAv-I.md)
+- Firewall:
+  - [ASAv-I](./ASAv-I.md)
+  - [USG6000v](./USG6000v.md)
 - Data Center:
   - [vIOS-Ser-I](./vIOS-Ser-I.md)
   - [Server1](./Server1.md)
