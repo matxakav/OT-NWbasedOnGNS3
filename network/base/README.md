@@ -1,40 +1,35 @@
 # Deploy Generic Base Network in GNS3 Server
 
+- [Deploy Generic Base Network in GNS3 Server](#deploy-generic-base-network-in-gns3-server)
+	- [Generic Base Network](#generic-base-network)
+	- [Appliances](#appliances)
+	- [Nodes](#nodes)
+
 Portable project of the generic base network is available on [Google Drive](https://drive.google.com/drive/folders/1ooRXrQyf2Lz0mGtcHeRZjTrhDW_SKV4w/).
+
+- You can skip this guide by downloading the portable project and open it via GNS3 client.
+- Read this guide if you want to customise your generic base network in GNS3 server.
 
 ## Generic Base Network
 
-![image](https://user-images.githubusercontent.com/69375071/210197317-12a7553f-9dea-4a2c-9336-2f2b721b06b8.png)
+![image](/assets/Generic%20Base%20Network.png)
 
-1. This network consists of 3 layers: *access*, *distribution* and *core*.
-2. The *data center (DC)* is composed of the layer 3 Cisco switch and the server. The design of the DC is very simplified as the network tiers are squeezed to a single switch layer 3 switch. The aim is to show configuration of the services running on the Server1 instead of discussing the complete DC design.
-3. The company *edge router* is connected to the Internet using two *Internet Service Providers (ISPs)*.
-4. The *Cisco ASA firewall* connects a campus network, data Center and the *edge router*.
-5. The *edge router* connected *DMZ* to the rest of the enterprise network and to the Internet. The DMZ consists of the *Cisco ASA firewall*, layer 3 Cisco switch and the *DMZ* server.
-6. The enterprise is connected to the ISP1 and ISP2 routers via enterprise *edge router*. Both *ISP* routers  are bridged via *GNS3 clouds* to the server Ethernet Card in order to simulate connection to the Internet.
+The figure shows the topology of generic base network. Refer to [Brezular's blog](https://brezular.com/2017/09/07/enterprise-network-on-gns3-part-1-introduction/) for detailed introductions.
 
-## Import GNS3 Appliances
+![image](/assets/GNS3%20GUI.png)
 
-- Follow [this document](./Appliances/README.md) to import all required appliances to GNS3 server.
+The figure is the generic base network deployed in GNS3 server.
 
-## Deploy Generic Base Network
+- An **appliance** is a template of a network device in the left column.
+- A **node** is an instantiation of an appliance in the central workspace.
+  - Drag an appliance in left column to the workspace to create a node of its type.
+  - The right column shows the status and sockets of all nodes in the workspace.
 
-- Follow [this document](./Deployment/README.md) to map nodes to appliances and connect all nodes.
+## Appliances
 
-## Configure Nodes
+1. [Use GNS3 client to import all required appliances into GNS3 server](../appliances/README.md)
 
-- Core
-  - End Devices: [PC1 - 4](./Configuration/PC.md)
-  - Access Layer: [OpenSwitch-Acc-I & II](./Configuration/OpenSwitch-Acc.md)
-  - Distribution Layer: [vEOS-Dis-I & II](./Configuration/vEOS-Dis.md)
-  - Core Layer: [vIOS-Core-I & II](./Configuration/vIOS-Core.md)
-- Firewall: [ASAv-I](./Configuration/ASAv-I.md)
-- Data Center:
-  - [vIOS-Ser-I](./Configuration/vIOS-Ser-I.md)
-  - [Server1](./Configuration/Server1.md)
-- Edge Router: [vIOS-Edge-I](./Configuration/vIOS-Edge-I.md)
-- ISP: [ISP1 & 2](./Configuration/ISP.md)
-- DMZ:
-  - [ASAv-DMZ-I](./Configuration/ASAv-DMZ-I.md)
-  - [vIOS-DMZ-I](./Configuration/vIOS-DMZ-I.md)
-  - [Serv-DMZ-I](./Configuration/Serv-DMZ-I.md)
+## Nodes
+
+1. [Instantiate nodes from appliances](../nodes/README.md)
+2. [Configure nodes](../nodes/configuration/README.md)

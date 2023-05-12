@@ -14,7 +14,7 @@ GNS3 implements client/server architecture.
 - A GNS3 server emulates a network in a headless Linux.
 - A GNS3 client in a laptop connects to the GNS3 server to visualise, configure, test, and troubleshoot the network.
 
-Docker engine is an optional dependence (plugin) of GNS3 server, but it is mandatory for our ICS network.
+Docker engine is an optional dependence (plugin) of GNS3 server, but it is mandatory to deploy our ICS network.
 
 ## Install GNS3 Client
 
@@ -67,6 +67,7 @@ cd dynamips
 mkdir build
 cd build
 cmake ..
+make
 sudo make install
 ```
 
@@ -120,10 +121,12 @@ sudo usermod -aG docker $USER
 
 ## Start GNS3 Server
 
-It is recommended to run gns3server as a service with nonroot user if you are a Ubuntu user, while generic linux users (except for Ubuntu/Debian) can run gns3server as a service with the root user.
+It is recommended to run gns3server as a service with nonroot user.
+
+- Generic Linux (except Ubuntu/Debian) can only run gns3server as root.
 
 ```sh
-# change "root" to your username if you are using Ubuntu
+# change "root" to your username in Ubuntu/Debian
 sudo cat > /lib/systemd/system/gns3server.service << EOF
 [Unit]
 Description=GNS3 server
@@ -156,13 +159,35 @@ sudo systemctl enable --now gns3server
 
 Refer to [official configuration file](https://docs.gns3.com/docs/using-gns3/administration/gns3-server-configuration-file/) of GNS3 server if you want to tune some parameters.
 
+```
+[Server]
+
+; use 0.0.0.0 for IPv4, :: for IPv6
+host=::
+port=3080
+
+; TCP ports for telnet consoles
+console_start_port_range = 5000
+console_end_port_range = 5050
+
+; auth username and password
+auth=True
+user=gns3
+password=gns3
+
+; (optional) enable HTTPS with a domain name and SSL certs
+ssl=True
+certfile=*.pem
+certkey=*.key
+```
+
 By default, GNS3 server listens on tcp:0.0.0.0:3080, and telnet consoles listen on ports 5000 to 5050. Config firewall to permit the traffic.
 
 ```sh
-# Ubuntu
+# Ubuntu (ufw)
 sudo ufw allow 3080,5000:5050/tcp
 
-# CentOS
+# CentOS (firewalld)
 sudo firewall-cmd --zone=public --add-port=3080,5000:5050/tcp --permanent
 sudo firewall-cmd reload
 ```
@@ -171,4 +196,4 @@ sudo firewall-cmd reload
 
 The figure shows how to use GNS3 client to connect to GNS3 server.
 
-By default, GNS3 server uses HTTP auth with username/password: `gns3`/`gns3`. You may configure it over HTTPS if you have a domain name.
+By default, GNS3 server uses HTTP auth with username/password: `gns3`/`gns3`. You may configure it over HTTPS if you have a domain name and SSL certs.

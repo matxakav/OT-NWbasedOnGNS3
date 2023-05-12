@@ -1,9 +1,11 @@
-# Importing Appliances to GNS3 Server
+# Appliances
 
-- This is the generic guide for importing an appliance to GNS3 server.
-- Download all required templates [here](.).
+- [Appliances](#appliances)
+	- [Import Appliances to GNS3 Server](#import-appliances-to-gns3-server)
 
-## Procedures
+Download all required templates [in the current directory](.).
+
+## Import Appliances to GNS3 Server
 
 1. Select `Import appliance` from the menu bar of GNS3 client to open a `.gns3a` file.
 
@@ -20,8 +22,7 @@
 ![image](https://user-images.githubusercontent.com/69375071/210214700-58abe174-740a-4b47-aa70-5b639d8cb842.png)
 
 4. After you download the image, click `Import` to upload it to GNS3 server. On success, the appliance status will be `Ready to install`. Select the root directory `XXX verion X.X.X` and then click `Next` to complete the importing process.
-
-> `Next` button will not work if you do not select the root directory.
+   - `Next` button will not work if you do not select the root directory.
 
 ![image](https://user-images.githubusercontent.com/69375071/210248364-4164a55a-89d3-4f92-824b-28e33ceeb104.png)
 
@@ -29,7 +30,7 @@
 
 ![image](https://user-images.githubusercontent.com/69375071/210248483-dfee17c9-ea86-4c1b-bee8-db25e9a9fc45.png)
 
-> You can review the `Usage` by right clicking the appliance from the sidebar, selecting `Configure template`, and navigating to `Usage` section.
+6. You can review the `Usage` by right clicking the appliance from the sidebar, selecting `Configure template`, and navigating to `Usage` section.
 
 |||
 |-|-|

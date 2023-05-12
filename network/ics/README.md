@@ -1,15 +1,35 @@
 # Deploy ICS Network in GNS3 Server
 
-## Network Description
+- [Deploy ICS Network in GNS3 Server](#deploy-ics-network-in-gns3-server)
+	- [ICS Network](#ics-network)
+	- [Deployment of ICS Network](#deployment-of-ics-network)
+
+The ICS network is based on the generic base network.
+
+```
+ics_network = generic_base_network
+	- 3 * vpcs
+	+ openplc
+	+ scada-lts
+	+ 2 * kalilinux
+	+ 4 * open_vswitch
+	+ onos
+```
+
+Portable project of the generic base network is available on [Google Drive](https://drive.google.com/drive/folders/1ooRXrQyf2Lz0mGtcHeRZjTrhDW_SKV4w/).
+
+- You can skip this guide by downloading the portable project and open it via GNS3 client.
+- Read this guide if you want to customise your ICS network in GNS3 server.
+
+## ICS Network
+
+![image](/assets/Base%20Network.png)
+
+The figure is the generic base network deployed in GNS3 server.
 
 ![image](/assets/ICS%20Network.png)
 
-The OT network is forked and developed from the IT network, where all VPCS's are replaced by docker containers (i.e., OpenPLC, ScadaLTS, and KaliLinux). The reasons why we use docker containers instead of [ubuntu cloud images](https://cloud-images.ubuntu.com) to simulate these end devices are as follows.
-
-- GNS3 server has native support for docker containers, including port mapping and network configuration.
-- Docker containers are lightweight and consume less RAM, ideal for deployment in cloud computing instances.
-
-> Docker containers in GNS3 server are `versatile`. They are created on project opening and removed on project closing, so all changes made to the containers are not persistent.
+The figure is the ICS network deployed in GNS3 server.
 
 ## Deployment of ICS Network
 
@@ -25,13 +45,15 @@ docker pull onosproject/onos:2.7.0
 
 > Special credit to Scada-LTS team for their support in [troubleshooting and creating](https://github.com/SCADA-LTS/Scada-LTS/issues/2473) of scadalts/scadalts:v2.6.18-mysql-8 docker image.
 
-Create templates for these 3 docker images following the table. Keep other unspecified fields unchanged.
+Create templates for these docker images following the table. Keep other unspecified fields unchanged.
 
 | Docker image | Name | Console type | HTTP port in the container | HTTP path |
 |-|-|-|-|-|
-| scadalts/scadalts:v2.6.18-mysql-8 | ScadaLTS | http | 8080 | /Scada-LTS |
-| sflorenz05/open-plc:v0.3 | OpenPLC | http | 8090 | / |
 | wzy318/kalilinux:latest | KaliLinux | telnet | | |
+| wzy318/openplc:latest | OpenPLC | http | 8080 | / |
+| wzy318/scadalts:latest | Scada-LTS | http | 8080 | /Scada-LTS |
+| gns3/oprnvswitch:latest | Open vSwitch | telnet | | |
+
 
 | | |
 |-|-|
@@ -42,16 +64,38 @@ Link the network following the image at the top.
 Configure network interfaces for the docker containers according to the table below.
 
 1. Right click on the device and select `Edit config`.
-2. Uncomment the lines as shown in the picture to configure a static IPv4 address for the default network interface `eth0`. All docker containers share a netmask `255.255.255.0` and nameserver `8.8.8.8`.
+2. Uncomment the lines as shown in the picture to configure a static IPv4 address for the default network interface `eth0`. All docker containers share a name server `8.8.8.8`.
 
-| Docker container | address | gateway |
+| Docker container | address/mask | gateway |
 |-|-|-|
-| OpenPLC-1 | 192.168.10.1 | 192.168.10.254 |
-| OpenPLC-2 | 192.168.20.1 | 192.168.20.254 |
-| OpenPLC-3 | 192.168.30.1 | 192.168.30.254 |
-| KaliLinux | 192.168.40.1 | 192.168.40.254 |
-| ScadaLTS | 172.16.50.1 | 172.16.50.254 |
+| OpenPLC1 | 192.168.10.1/24 | 192.168.10.254 |
+| KaliLinux1 | 192.168.40.1/24 | 192.168.40.254 |
+| Scada-LTS1 | 172.16.50.1/24 | 172.16.50.254 |
+| KaliLinux2 | 192.168.50.2/24 | 172.16.50.254 |
+| OVS-I | 172.17.1.1/16 | 172.17.0.1 |
+| OVS-II | 172.17.1.2/16 | 172.17.0.1 |
+| OVS-III | 172.17.1.3/16 | 172.17.0.1 |
+| OVS-IV | 172.17.1.4/16 | 172.17.0.1 |
 
 | | |
 |-|-|
 | ![image](https://user-images.githubusercontent.com/69375071/219405156-cff06161-ff39-49bb-bf13-9c45d956dbdc.png) | ![image](https://user-images.githubusercontent.com/69375071/219405296-ad4e567d-4192-43ee-adec-6d8b8838c263.png) |
+
+Create ONOS SDN controller using following command. It starts ONOS with a web UI listening at TCP:127.0.0.1:8181 and a SSH console listening at TCP:127.0.0.1:8101.
+
+```sh
+docker run --restart=unless-stopped -d -p 127.0.0.1:8181:8181 -p 127.0.0.1:8101:8101 --name onos onosproject/onos:2.7.0
+```
+
+Connect Open vSwitch to ONOS
+
+```sh
+ovs-vsctl set bridge br0 protocols=OpenFlow13
+ovs-vsctl set-controller br0 tcp:172.17.0.2:6633
+```
+
+Dump flow entries from ONOS
+
+```sh
+ovs-ofctl -O OpenFlow13 dump-flows br0
+```

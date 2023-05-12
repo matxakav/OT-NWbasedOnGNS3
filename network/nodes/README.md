@@ -1,6 +1,12 @@
-# Deployment of Experimental IT Network on GNS3
+# Instantiate Nodes
 
-- This is the generic guide for deployment of experimental IT network.
+- [Instantiate Nodes](#instantiate-nodes)
+	- [Configuring GNS3 Client](#configuring-gns3-client)
+	- [Mapping Devices to Appliances](#mapping-devices-to-appliances)
+		- [Renaming a Device](#renaming-a-device)
+		- [Configuring Network Adapters for Server1](#configuring-network-adapters-for-server1)
+		- [Checking NICs of the Host](#checking-nics-of-the-host)
+	- [Connecting Devices](#connecting-devices)
 
 ## Configuring GNS3 Client
 
@@ -74,4 +80,4 @@
 - Follow the image below to connect all devices. It's very simple and straightforward.
 > Notice that some devices have port `mgmt` which is an alternative name for eth0 / e0. That's because port 0 is usually used as management port.
 
-![image](https://user-images.githubusercontent.com/69375071/210222682-ff2e0d4b-101a-4ed2-b300-6f1c98e9e1c8.png)
+![image](/assets/Base%20Network.png)
