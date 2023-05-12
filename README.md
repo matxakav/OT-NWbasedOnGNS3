@@ -16,7 +16,7 @@
 This project shows Attack & Defence in an ICS (Industrial Control System) network.
 
 - The ICS network is deployed in [GNS3 server](https://github.com/GNS3/gns3-server/), based on a [generic base network](https://brezular.com/2017/09/07/enterprise-network-on-gns3-part-1-introduction/).
-- Attack & Defence is conducted on [Modbus/TCP protocol](https://modbus.org/docs/Modbus_Messaging_Implementation_Guide_V1_0b.pdf/) and HTTP protocol.
+- Attack & Defence is conducted on [Modbus/TCP protocol](https://modbus.org/docs/Modbus_Messaging_Implementation_Guide_V1_0b.pdf) and HTTP protocol.
 - The attack is a type of [endpoint DoS (Denial of Service)](https://attack.mitre.org/techniques/T1499/) attack, and the attack tools are [injection on Modbus/TCP](https://github.com/thiagoralves/defcon26/) and [Slowloris on HTTP](https://github.com/gkbrk/slowloris/).
 - The defence is based on SDN (Software-Defined Networking), and the countermeasure is deployed on an [ONOS SDN controller](https://wiki.onosproject.org/) to control multiple [Open vSwitches](https://www.openvswitch.org/).
 
