@@ -156,6 +156,7 @@ Figure 4 is our ICS network topology where Attack & Defence takes place.
 
 ## Demonstrations
 
+- [Check the video demonstration of Modbus/TCP DoS attack](https://youtu.be/zfWXR3ZAG7I)
 - videos to be added
 - PowerPoint slides to be added
 
@@ -173,12 +174,11 @@ Figure 4 is our ICS network topology where Attack & Defence takes place.
 
 ## DOCS TODO (temporary)
 
-- [demonstration](#demonstrations)
-- [publication](#publications)
-- [hardware requirement](/network/gns3/README.md#prerequisites)
 - [security patches](/network/gns3/README.md#security-patches)
 - [detailed explaination](/network/ics/README.md)
 - [configuration of OpenPLC, Scada-LTS, KaliLinux, Open vSwitch, ONOS, USG6000v](/network/nodes/configuration/README.md)
 - [how to compile and run Modbus attacker](/modbus/attack/README.md)
 - [how to use IntelliJ IDEA](/modbus/defence/README.md)
 - [how to install and run slowhttptest](/http/attack/README.md)
+- [demonstration](#demonstrations)
+- [publication](#publications)

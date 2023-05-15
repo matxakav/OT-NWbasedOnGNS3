@@ -20,11 +20,22 @@ Docker engine is an optional dependence (plugin) of GNS3 server, but is mandator
 
 ## Prerequisites
 
-- A bare metal Linux ([Ubuntu server LTS](https://ubuntu.com/download/server/) highly recommended) with at least 20GB RAM, 30GB HDD/SSD, and a public IPv4/IPv6.
+A bare metal Linux distro ([Ubuntu server LTS](https://ubuntu.com/download/server/) recommended) with
+
+- a x86_64/amd64 CPU with at least quad cores (octa cores recommended)
+- at least 20GB RAM (32GB recommended)
+- at least 30GB HDD/SSD
+- (optional) a public IPv4/IPv6 (nice to have)
+
+It is recommended to use your own home desktop (if you have one). In this case, you can install [Ubuntu desktop LTS](https://ubuntu.com/download/desktop/) with a gnome GUI bundled in your home desktop if you also want to play games in it. [Steam](https://repo.steampowered.com/steam/) is officially available in Ubuntu desktop LTS.
+
+(Advanced users only!) If you have an IPC (Industrial Personal Computer) with multiple RJ45 Ethernet interfaces and at least 32GB RAM, you may install ESXi/PVE/unRaid in it to host multiple OSs such as Ubuntu, Windows, and OpenWRT (soft router). Installation instructions can be found on BiliBili and YouTube. However, do this at your own risk!
+
+Thanks to China's IoT network infrastructure construction, Chinese home broadband users should have dynamic public IPv6 assigned to all connected home devices. If you have dynamic public IPv6, you can work at school to remotely connect to your home desktop. If you have a domain name, you can use DDNS (Dynamic DNS) to resolve some addresses in the domain name to your home desktop IPv6. You may [email me](mailto:wangziyao318@163.com) to request a free domain name address if you have public IPv4/IPv6.
 
 ## Install GNS3 Client
 
-1. Go to https://gns3.com and register an account with an educational email address.
+1. Go to https://gns3.com/ and register an account with an educational email address.
 2. Login and then [download the GNS3 client](https://gns3.com/software/download).
 3. Install the package.
    - Mac users refer to [this discussion](https://gns3.com/install-error-macos-ventura/) in case of installation error.
