@@ -26,7 +26,7 @@ In this project, we practise **SDN**-based Attack & Defence on **Modbus/TCP and 
 
 ![image](/assets/ICS%20Concept.png)
 
-<p align=center><b>Figure 1</b> OT Components</p>
+<p align="center"><b>Figure 1</b> OT Components</p>
 
 <br/>
 
@@ -41,7 +41,7 @@ Figure 1 shows the relationships among some ICS-related concepts.
 
 ![image](https://learn.microsoft.com/en-us/azure/defender-for-iot/organizations/media/how-to-set-up-your-network/purdue-model.png)
 
-<center><b>Figure 2</b> <a href="https://learn.microsoft.com/en-us/azure/defender-for-iot/organizations/best-practices/understand-network-architecture/">Purdue Model for ICS Security</a></center>
+<p align="center"><b>Figure 2</b> <a href="https://learn.microsoft.com/en-us/azure/defender-for-iot/organizations/best-practices/understand-network-architecture/">Purdue Model for ICS Security</a></p>
 
 <br/>
 
@@ -99,7 +99,7 @@ Our attack tools are deployed in a Kali Linux, a Debian-based Linux distro with 
 
 ![image](/assets/SDN%20Architecture.png)
 
-<center><b>Figure 3</b> <a href="https://opennetworking.org/wp-content/uploads/2013/02/TR_SDN_ARCH_1.0_06062014.pdf">SDN Architecture</a></center>
+<p align="center"><b>Figure 3</b> <a href="https://opennetworking.org/wp-content/uploads/2013/02/TR_SDN_ARCH_1.0_06062014.pdf">SDN Architecture</a></p>
 
 <br/>
 
@@ -124,7 +124,7 @@ Our SDN-based defence deploys multiple [Open vSwitches](https://www.openvswitch.
 
 ![image](/assets/ICS%20Topology.png)
 
-<center><b>Figure 4</b> ICS Network Topology</center>
+<p align="center"><b>Figure 4</b> ICS Network Topology</p>
 
 <br/>
 
