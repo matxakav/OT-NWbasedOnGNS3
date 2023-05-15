@@ -15,6 +15,8 @@
 
 In this project, we practise **SDN**-based Attack & Defence on **Modbus/TCP and HTTP protocols** in an **ICS network**.
 
+<br/>
+
 <details>
 <summary>What is an <b>ICS (Industrial Control System) network</b>?</summary>
 
@@ -24,7 +26,7 @@ In this project, we practise **SDN**-based Attack & Defence on **Modbus/TCP and 
 
 ![image](/assets/ICS%20Concept.png)
 
-<center><b>Figure 1</b> OT Components</center>
+<p align=center><b>Figure 1</b> OT Components</p>
 
 <br/>
 
