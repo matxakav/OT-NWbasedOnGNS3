@@ -1,11 +1,13 @@
 # Install GNS3 Client and Server
 
 - [Install GNS3 Client and Server](#install-gns3-client-and-server)
+	- [Prerequisites](#prerequisites)
 	- [Install GNS3 Client](#install-gns3-client)
 	- [Install GNS3 Server](#install-gns3-server)
 		- [Install Docker Engine](#install-docker-engine)
 	- [Start GNS3 Server](#start-gns3-server)
 	- [Connect GNS3 Client to Server](#connect-gns3-client-to-server)
+	- [Security Patches](#security-patches)
 
 GNS3 is a network emulator. It is more customisable than Mininet, and more professional than Packet Tracer.
 
@@ -14,7 +16,11 @@ GNS3 implements client/server architecture.
 - A GNS3 server emulates a network in a headless Linux.
 - A GNS3 client in a laptop connects to the GNS3 server to visualise, configure, test, and troubleshoot the network.
 
-Docker engine is an optional dependence (plugin) of GNS3 server, but it is mandatory to deploy our ICS network.
+Docker engine is an optional dependence (plugin) of GNS3 server, but is mandatory to deploy our ICS network.
+
+## Prerequisites
+
+- A bare metal Linux ([Ubuntu server LTS](https://ubuntu.com/download/server/) highly recommended) with at least 20GB RAM, 30GB HDD/SSD, and a public IPv4/IPv6.
 
 ## Install GNS3 Client
 
@@ -197,3 +203,8 @@ sudo firewall-cmd reload
 The figure shows how to use GNS3 client to connect to GNS3 server.
 
 By default, GNS3 server uses HTTP auth with username/password: `gns3`/`gns3`. You may configure it over HTTPS if you have a domain name and SSL certs.
+
+## Security Patches
+
+if public IPv4, then must do! if public ipv6, then recommended
+how to configure HTTPS or SSH local forwarding

@@ -6,14 +6,18 @@
   - Distribution Layer: [vEOS-Dis-I & II](./vEOS-Dis.md)
   - Core Layer: [vIOS-Core-I & II](./vIOS-Core.md)
 - Firewall:
-  - [ASAv-I](./ASAv-I.md)
-  - [USG6000v](./USG6000v.md)
+  - [ASAv-I](./ASAv-I.md) (unlicenced ASAv has limited throughput)
+  - [USG6000v](./USG6000v.md) (the USG6000v)
 - Data Center:
   - [vIOS-Ser-I](./vIOS-Ser-I.md)
-  - [Server1](./Server1.md)
+  - [Server1](./Server1.md) (this is not used in our network)
 - Edge Router: [vIOS-Edge-I](./vIOS-Edge-I.md)
 - ISP: [ISP1 & 2](./ISP.md)
 - DMZ:
   - [ASAv-DMZ-I](./ASAv-DMZ-I.md)
   - [vIOS-DMZ-I](./vIOS-DMZ-I.md)
   - [Serv-DMZ-I](./Serv-DMZ-I.md)
+- ICS:
+  - KaliLinux
+  - Open vSwitch
+  - ONOS (how to add app component in ONOS)

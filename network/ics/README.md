@@ -6,14 +6,16 @@
 
 The ICS network is based on the generic base network.
 
+Tell me what is the vpcs?
+
 ```
 ics_network = generic_base_network
-	- 3 * vpcs
-	+ openplc
+	- 3 * vpcs # vpcs is the end-device virtual PC
+	+ openplc # it is the PLC emulator
 	+ scada-lts
 	+ 2 * kalilinux
 	+ 4 * open_vswitch
-	+ onos
+	+ onos # is SDN controller
 ```
 
 Portable project of the generic base network is available on [Google Drive](https://drive.google.com/drive/folders/1ooRXrQyf2Lz0mGtcHeRZjTrhDW_SKV4w/).
@@ -33,7 +35,9 @@ The figure is the ICS network deployed in GNS3 server.
 
 ## Deployment of ICS Network
 
-Pull the required docker images.
+Pull the required docker images in the headless Linux (Ubuntu) that you install GNS3 server.
+
+Tell me where to docker pull.
 
 ```sh
 docker pull wzy318/kalilinux:latest
@@ -58,8 +62,6 @@ Create templates for these docker images following the table. Keep other unspeci
 | | |
 |-|-|
 | ![image](https://user-images.githubusercontent.com/69375071/219404831-48619037-2910-45de-985f-01f51ac5617b.png) | ![image](https://user-images.githubusercontent.com/69375071/219404968-3a93abe1-d846-4ca6-aab9-1a6dd46daac4.png) |
-
-Link the network following the image at the top.
 
 Configure network interfaces for the docker containers according to the table below.
 

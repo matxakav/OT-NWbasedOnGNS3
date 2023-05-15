@@ -7,6 +7,11 @@ Refer to the [source code](https://github.com/gkbrk/slowloris/) of Slowloris att
 The slowloris attack is conducted using `slowhttptest` tool. `slowhttptest` is available in `APT` packet manager.
 
 ```sh
+sudo apt update
+sudo apt install slowhttpattack
+```
+
+```sh
 # -H use Slowloris attack
 # -c number of connections to be established
 # -r number of connections established concurrently in one second

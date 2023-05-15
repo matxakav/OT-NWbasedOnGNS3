@@ -23,3 +23,6 @@ Refer to [this repo](https://github.com/wangziyao318/onos-app-ics/) for source c
 
 - The countermeasure app is written in Java.
 - Use OpenJDK11 + Maven in IntelliJ IDEA.
+
+
+Document how to use the IntelliJ IDEA.

@@ -31,3 +31,7 @@ The picture below shows the successful injection attack.
 ![image](https://user-images.githubusercontent.com/69375071/219570621-9ecb20a5-be76-4d0f-b608-f2fd7706a733.png)
 
 Refer to the [source code](https://github.com/thiagoralves/defcon26/blob/master/Water%20Heater%20Experiment/Injection_Attack/injection_attack.cpp/) of injection attack.
+
+We compile and run the attacker.
+
+In the KaliLinux
