@@ -82,7 +82,7 @@ We use the [endpoint DoS (Denial of Service)](https://attack.mitre.org/technique
 - We use [injection attack on Modbus/TCP](https://github.com/thiagoralves/defcon26/) to cause DoS on PLC (the Modbus server).
 - We use [Slowloris attack on HTTP](https://github.com/gkbrk/slowloris/) to cause DoS on SCADA (the HTTP server).
 
-Our attack tools are deployed in a Kali Linux, a Debian-based Linux distro with common attack tools bundled. In the case, the Kali Linux can be considered as the attacker.
+Our attack tools are deployed in a **Kali Linux**, a Debian-based Linux distro with common attack tools bundled. In the case, the Kali Linux can be considered as the attacker.
 
 ---
 
@@ -111,7 +111,7 @@ SDN has 3 layers (planes), as shown in Figure 3.
 - The controller plane sits the SDN controller that monitors and controls the data plane via the southbound interface. OpenFlow is a well-known southbound protocol.
 - The application plane is for applications to monitor and control the SDN controller via the northbound interface.
 
-Our SDN-based defence deploys multiple [Open vSwitches](https://www.openvswitch.org/) in the data plane, and deploys an [ONOS SDN controller](https://wiki.onosproject.org/) in the controller plane to monitor and control the ICS network (the data plane) via these Open vSwitches.
+Our SDN-based defence deploys multiple **Open vSwitch**es in the data plane, and deploys an **ONOS SDN controller** in the controller plane to monitor and control the ICS network (the data plane) via these Open vSwitches.
 
 - The ONOS SDN controller can interact with Open vSwitches via [OpenFlow protocol](https://opennetworking.org/wp-content/uploads/2014/10/openflow-spec-v1.3.0.pdf). In the case, we can consider these Open vSwitches as "SDN clients" and the ONOS SDN controller as "SDN server".
 - As mentioned above in Figure 2, our SDN-based defence resembles Microsoft's Azure solution to the ICS network security.
