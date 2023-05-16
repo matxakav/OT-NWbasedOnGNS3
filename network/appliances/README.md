@@ -46,6 +46,8 @@ Download all required appliance templates as a [zip file](./appliances.zip).
 
 Some appliances such as Docker images require extra configuration due to the limitations of their templates.
 
+In practice, we should change the `HTTP port in the container` and `HTTP path` in OpenPLC and Scada-LTS.
+
 OpenPLC
 
 Scada-LTS
@@ -55,6 +57,45 @@ Scada-LTS
 You may want to create new templates if you find some new appliances to use.
 
 ### New Versions in Existing Appliances
+
+Refer to existing templates in the current directory. Take [opx-openswitch.gns3a](./opx-openswitch.gns3a) as an example.
+
+You should add a new image and a new version. Say the image is NewImage.qcow2 with version 1.0.0. The image size is 123456789 Byte and its md5sum is XXX.
+
+```json
+{
+	"images": [
+        {
+            "filename": "OpenSwitch.qcow2",
+            "version": "0.4.0",
+            "md5sum": "1989d5653718e0de830dec68a0475ac1",
+            "filesize": 457572352,
+            "download_url": "https://drive.google.com/drive/folders/1PfXBkzPgJDw7eFsGfKvLYbGgeZO9YKKy"
+        },
+		{
+            "filename": "NewImage.qcow2",
+            "version": "1.0.0",
+            "md5sum": "XXX",
+            "filesize": 123456789,
+            "download_url": "https://some_download_url"
+        }
+    ],
+    "versions": [
+        {
+            "name": "0.4.0",
+            "images": {
+                "hda_disk_image": "OpenSwitch.qcow2"
+            }
+        },
+		{
+            "name": "1.0.0",
+            "images": {
+                "hda_disk_image": "NewImage.qcow2"
+            }
+        }
+    ]
+}
+```
 
 ### New Appliances
 

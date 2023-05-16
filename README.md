@@ -136,8 +136,6 @@ Figure 4 is our ICS network topology where Attack & Defence takes place.
 - [Open vSwitch](https://www.openvswitch.org/) (implements "SDN client")
 - [ONOS SDN controller](https://wiki.onosproject.org/) (implements "SDN server")
 
----
-
 ## ICS Network
 
 1. [Install GNS3 client and server](./network/gns3/README.md)
