@@ -50,8 +50,8 @@ In practice, we should change the `HTTP port` and `HTTP path` in OpenPLC and Sca
 
 <div align=center>
 
-<img src="https://github.com/sfl0r3nz05/OT-NWbasedOnGNS3/assets/69375071/d5a0c510-676a-4475-9fce-b44570e60952" width="49%" />
-<img src="https://github.com/sfl0r3nz05/OT-NWbasedOnGNS3/assets/69375071/aaecd524-5b96-46fc-8189-0b690e1bc099" width="49%" />
+<img src="https://user-images.githubusercontent.com/69375071/238611155-d5a0c510-676a-4475-9fce-b44570e60952.png" width="49%" />
+<img src="https://user-images.githubusercontent.com/69375071/238611340-aaecd524-5b96-46fc-8189-0b690e1bc099.png" width="49%" />
 
 </div>
 
