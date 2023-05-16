@@ -4,14 +4,16 @@
 	- [Import Appliances into GNS3 Server](#import-appliances-into-gns3-server)
 	- [Configure Appliances](#configure-appliances)
 	- [Create New Templates](#create-new-templates)
-		- [New Versions in Existing Appliances](#new-versions-in-existing-appliances)
+		- [New Versions of Existing Appliances](#new-versions-of-existing-appliances)
 		- [New Appliances](#new-appliances)
 
-Download all required appliance templates as a [zip file](./appliances.zip).
+Appliance templates are JSON files with the extension `.gns3a`.
+
+Download all required appliance templates as a [zip file](./appliances.zip). You can also open them one by one in the current directory.
 
 ## Import Appliances into GNS3 Server
 
-1. Select `Import appliance` from the menu bar of GNS3 client to open a `.gns3a` file.
+1. Select `Import appliance` from the menu bar of GNS3 client to open a `.gns3a` file. You can also double click on the `.gns3a` file to open it with GNS3 client.
 
 ![image](https://user-images.githubusercontent.com/69375071/210214639-95e7f455-faed-462c-9c72-3b93b19976d5.png)
 
@@ -21,6 +23,7 @@ Download all required appliance templates as a [zip file](./appliances.zip).
 
 3. Click on the subdirectory and notice that two buttons `Import` and `Download` appear at the bottom of the window. Click `Download` to open a download link for the image in your web browser.
    - Some appliances require multiple images. Make sure to download and import all of them.
+   - Chinese users will need a VPN to download the images on Google Drive.
 
 ![image](https://user-images.githubusercontent.com/69375071/210214700-58abe174-740a-4b47-aa70-5b639d8cb842.png)
 
@@ -29,11 +32,11 @@ Download all required appliance templates as a [zip file](./appliances.zip).
 
 ![image](https://user-images.githubusercontent.com/69375071/210248364-4164a55a-89d3-4f92-824b-28e33ceeb104.png)
 
-5. Read the `Usage` carefully before configuring the network.
+5. Read the `Usage` carefully.
 
 ![image](https://user-images.githubusercontent.com/69375071/210248483-dfee17c9-ea86-4c1b-bee8-db25e9a9fc45.png)
 
-6. You can review the `Usage` by right clicking the appliance from the sidebar, selecting `Configure template`, and navigating to `Usage` section.
+6. You can review the `Usage` by right clicking the appliance from the left sidebar, selecting `Configure template`, and navigating to `Usage` section.
 
 <div align=center>
 
@@ -42,11 +45,13 @@ Download all required appliance templates as a [zip file](./appliances.zip).
 
 </div>
 
+<br/>
+
 ## Configure Appliances
 
 Some appliances such as Docker images require extra configuration due to the limitations of their templates.
 
-In practice, we should change the `HTTP port` and `HTTP path` in OpenPLC and Scada-LTS.
+In practice, we should change the `HTTP port in the container` and the `HTTP path` in OpenPLC and Scada-LTS.
 
 <div align=center>
 
@@ -55,15 +60,19 @@ In practice, we should change the `HTTP port` and `HTTP path` in OpenPLC and Sca
 
 </div>
 
+<br/>
+
 ## Create New Templates
 
-You may want to create new templates if you find some new appliances to use.
+You may want to create new templates if you find some new images to use. These images can be new versions of existing appliances or new appliances.
 
-### New Versions in Existing Appliances
+### New Versions of Existing Appliances
 
 Refer to existing templates in the current directory. Take [opx-openswitch.gns3a](./opx-openswitch.gns3a) as an example.
 
-You should add a new image and a new version. Say the image is NewImage.qcow2 with version 1.0.0. The image size is 123456789 Byte and its md5sum is XXX.
+You should add a new image and a new version. Say the image is `NewImage.qcow2` with version `1.0.0`, size `123456789` (Byte), and md5sum `1234567890987654321abcdefghijklm`.
+
+- In any Linux distro, you can use `ls -l` to get the image size in Byte, and `md5sum NewImage.qcow2` to get the md5sum.
 
 ```json
 {
@@ -78,7 +87,7 @@ You should add a new image and a new version. Say the image is NewImage.qcow2 wi
 		{
             "filename": "NewImage.qcow2",
             "version": "1.0.0",
-            "md5sum": "XXX",
+            "md5sum": "1234567890987654321abcdefghijklm",
             "filesize": 123456789,
             "download_url": "https://some_download_url"
         }
@@ -102,4 +111,8 @@ You should add a new image and a new version. Say the image is NewImage.qcow2 wi
 
 ### New Appliances
 
-You may find GNS3 marketplace for templates.
+Search on the [GNS3 marketplace](https://gns3.com/marketplace/appliances/) for templates first. In most cases, you would find the right one to use.
+
+If the template in GNS3 marketplace doesn't contain your image version, then you can add it following the above instruction.
+
+If you can't find the template in GNS3 marketplace, then you can create your own template by modifying any existing ones.

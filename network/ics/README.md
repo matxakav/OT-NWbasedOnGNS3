@@ -2,7 +2,7 @@
 
 - [Deploy ICS Network in GNS3 Server](#deploy-ics-network-in-gns3-server)
 	- [ICS Network](#ics-network)
-	- [Deployment of ICS Network](#deployment-of-ics-network)
+	- [Deploy the ICS Network](#deploy-the-ics-network)
 
 The ICS network is based on the generic base network.
 
@@ -33,7 +33,7 @@ The figure is the generic base network deployed in GNS3 server.
 
 The figure is the ICS network deployed in GNS3 server.
 
-## Deployment of ICS Network
+## Deploy the ICS Network
 
 Pull the required docker images in the headless Linux (Ubuntu) that you install GNS3 server.
 
