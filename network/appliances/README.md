@@ -1,11 +1,15 @@
 # Appliances
 
 - [Appliances](#appliances)
-	- [Import Appliances to GNS3 Server](#import-appliances-to-gns3-server)
+	- [Import Appliances into GNS3 Server](#import-appliances-into-gns3-server)
+	- [Configure Appliances](#configure-appliances)
+	- [Create New Templates](#create-new-templates)
+		- [New Versions in Existing Appliances](#new-versions-in-existing-appliances)
+		- [New Appliances](#new-appliances)
 
-Download all required templates [in the current directory](.).
+Download all required appliance templates as a [zip file](./appliances.zip).
 
-## Import Appliances to GNS3 Server
+## Import Appliances into GNS3 Server
 
 1. Select `Import appliance` from the menu bar of GNS3 client to open a `.gns3a` file.
 
@@ -16,8 +20,7 @@ Download all required templates [in the current directory](.).
 ![image](https://user-images.githubusercontent.com/69375071/210214665-8bb7eddf-150a-4985-9130-d12d971f02d0.png)
 
 3. Click on the subdirectory and notice that two buttons `Import` and `Download` appear at the bottom of the window. Click `Download` to open a download link for the image in your web browser.
-
-> Some appliances require multiple images. Make sure to download and import all of them.
+   - Some appliances require multiple images. Make sure to download and import all of them.
 
 ![image](https://user-images.githubusercontent.com/69375071/210214700-58abe174-740a-4b47-aa70-5b639d8cb842.png)
 
@@ -32,6 +35,27 @@ Download all required templates [in the current directory](.).
 
 6. You can review the `Usage` by right clicking the appliance from the sidebar, selecting `Configure template`, and navigating to `Usage` section.
 
-|||
-|-|-|
-|![image](https://user-images.githubusercontent.com/69375071/210248750-321402a7-896c-481b-97f3-739dff6248f9.png)|![image](https://user-images.githubusercontent.com/69375071/210248600-baa8416d-2215-4327-830c-b4ddf691f657.png)|
+<div align=center>
+
+<img src="https://user-images.githubusercontent.com/69375071/210248750-321402a7-896c-481b-97f3-739dff6248f9.png" width="49%" />
+<img src="https://user-images.githubusercontent.com/69375071/210248600-baa8416d-2215-4327-830c-b4ddf691f657.png" width="49%" />
+
+</div>
+
+## Configure Appliances
+
+Some appliances such as Docker images require extra configuration due to the limitations of their templates.
+
+OpenPLC
+
+Scada-LTS
+
+## Create New Templates
+
+You may want to create new templates if you find some new appliances to use.
+
+### New Versions in Existing Appliances
+
+### New Appliances
+
+You may find GNS3 marketplace for templates.

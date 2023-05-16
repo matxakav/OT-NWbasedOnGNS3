@@ -32,14 +32,14 @@
             "version": "8.0.1",
             "md5sum": "55d5ef0bd900aa3eb0942fd8d0e59a4f",
             "filesize": 6291456,
-            "download_url": "https://www.arista.com/en/support/software-download"
+            "download_url": "https://drive.google.com/drive/folders/1DwTr2qPbas1Sc1rFRop4sTqJjjLotZjd"
         },
         {
             "filename": "vEOS64-lab-4.29.2F.qcow2",
             "version": "4.29.2F",
             "md5sum": "b3fd2c19881a62ca8213dbd6238d4139",
             "filesize": 548929536,
-            "download_url": "https://www.arista.com/en/support/software-download"
+            "download_url": "https://drive.google.com/drive/folders/1DwTr2qPbas1Sc1rFRop4sTqJjjLotZjd"
         }
     ],
     "versions": [

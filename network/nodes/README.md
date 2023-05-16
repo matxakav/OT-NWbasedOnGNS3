@@ -80,4 +80,4 @@
 - Follow the image below to connect all devices. It's very simple and straightforward.
 > Notice that some devices have port `mgmt` which is an alternative name for eth0 / e0. That's because port 0 is usually used as management port.
 
-![image](/assets/Base%20Network.png)
+![image](../../assets/Base%20Network.png)

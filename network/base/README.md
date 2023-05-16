@@ -2,8 +2,7 @@
 
 - [Deploy Generic Base Network in GNS3 Server](#deploy-generic-base-network-in-gns3-server)
 	- [Generic Base Network](#generic-base-network)
-	- [Appliances](#appliances)
-	- [Nodes](#nodes)
+	- [Deploy Generic Base Network in GNS3 Server](#deploy-generic-base-network-in-gns3-server-1)
 
 Portable project of the generic base network is available on [Google Drive](https://drive.google.com/drive/folders/1ooRXrQyf2Lz0mGtcHeRZjTrhDW_SKV4w/).
 
@@ -12,24 +11,32 @@ Portable project of the generic base network is available on [Google Drive](http
 
 ## Generic Base Network
 
-![image](/assets/Generic%20Base%20Network.png)
+<br/>
 
-The figure shows the topology of generic base network. Refer to [Brezular's blog](https://brezular.com/2017/09/07/enterprise-network-on-gns3-part-1-introduction/) for detailed introductions.
+![image](../../assets/Generic%20Base%20Network.png)
 
-![image](/assets/GNS3%20GUI.png)
+<p align="center"><b>Figure 1</b> Generic Base Network</p>
 
-The figure is the generic base network deployed in GNS3 server.
+<br/>
 
-- An **appliance** is a template of a network device in the left column.
+Figure 1 shows the topology of a generic base network. Refer to [Brezular's blog](https://brezular.com/2017/09/07/enterprise-network-on-gns3-part-1-introduction/) for detailed introductions if you want to dig into it.
+
+<br/>
+
+![image](../../assets/GNS3%20GUI.png)
+
+<p align="center"><b>Figure 2</b> Generic Base Network in GNS3 Server</p>
+
+<br/>
+
+Figure 2 is our generic base network deployed in GNS3 server in our home desktop. The network is visualised and controlled by GNS3 client in our laptop. Here, we define some terminologies.
+
+- An **appliance** is a template of a network device in the left sidebar.
 - A **node** is an instantiation of an appliance in the central workspace.
-  - Drag an appliance in left column to the workspace to create a node of its type.
-  - The right column shows the status and sockets of all nodes in the workspace.
+  - Drag an appliance from the left sidebar to the workspace to create a node of its type.
+  - The right sidebar displays the status and sockets of all nodes in the workspace.
 
-## Appliances
+## Deploy Generic Base Network in GNS3 Server
 
-1. [Use GNS3 client to import all required appliances into GNS3 server](../appliances/README.md)
-
-## Nodes
-
-1. [Instantiate nodes from appliances](../nodes/README.md)
-2. [Configure nodes](../nodes/configuration/README.md)
+1. [Import all appliances into GNS3 server](../appliances/README.md)
+2. [Instantiate and configure nodes](../nodes/README.md)

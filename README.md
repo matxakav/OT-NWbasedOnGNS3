@@ -2,7 +2,7 @@
 
 > This repository is under development ⛏ and maintained by [Ziyao Wang](ziyao.wang@se19.qmul.ac.uk), [Mikel Dean](mdeanoses@ceit.es), and [Santiago Figueroa](sfigueroa@ceit.es) as part of the project: *Adaptive Countermeasure based on Software-Defined Networking for Industrial Control Systems*.
 >
->> Check the [meeting minutes](/minute/) ✏.
+>> Check the [meeting minutes](./minute/) ✏.
 
 - [Attack \& Defence in ICS Network](#attack--defence-in-ics-network)
 	- [ICS Network](#ics-network)
@@ -24,7 +24,7 @@ In this project, we practise **SDN**-based Attack & Defence on **Modbus/TCP and 
 
 <br/>
 
-![image](/assets/ICS%20Concept.png)
+![image](./assets/ICS%20Concept.png)
 
 <p align="center"><b>Figure 1</b> OT Components</p>
 
@@ -97,7 +97,7 @@ Our attack tools are deployed in a **Kali Linux**, a Debian-based Linux distro w
 
 <br/>
 
-![image](/assets/SDN%20Architecture.png)
+![image](./assets/SDN%20Architecture.png)
 
 <p align="center"><b>Figure 3</b> <a href="https://opennetworking.org/wp-content/uploads/2013/02/TR_SDN_ARCH_1.0_06062014.pdf">SDN Architecture</a></p>
 
@@ -122,7 +122,7 @@ Our SDN-based defence deploys multiple **Open vSwitch**es in the data plane, and
 
 <br/>
 
-![image](/assets/ICS%20Topology.png)
+![image](./assets/ICS%20Topology.png)
 
 <p align="center"><b>Figure 4</b> ICS Network Topology</p>
 
@@ -140,19 +140,19 @@ Figure 4 is our ICS network topology where Attack & Defence takes place.
 
 ## ICS Network
 
-1. [Install GNS3 client and server](/network/gns3/README.md)
-2. [Deploy generic base network in GNS3 server](/network/base/README.md)
-3. [Deploy ICS network in GNS3 server](/network/ics/README.md)
+1. [Install GNS3 client and server](./network/gns3/README.md)
+2. [Deploy generic base network in GNS3 server](./network/base/README.md)
+3. [Deploy ICS network in GNS3 server](./network/ics/README.md)
 
 ## Modbus/TCP
 
-1. [Conduct the injection attack on Modbus/TCP](/modbus/attack/README.md)
-2. [Deploy countermeasure in ONOS against Modbus/TCP DoS attack](/modbus/defence/README.md)
+1. [Conduct the injection attack on Modbus/TCP](./modbus/attack/README.md)
+2. [Deploy countermeasure in ONOS against Modbus/TCP DoS attack](./modbus/defence/README.md)
 
 ## HTTP
 
-1. [Conduct the Slowloris attack on HTTP](/http/attack/README.md)
-2. [Deploy countermeasure in ONOS against slow HTTP attack](/http/defence/README.md)
+1. [Conduct the Slowloris attack on HTTP](./http/attack/README.md)
+2. [Deploy countermeasure in ONOS against slow HTTP attack](./http/defence/README.md)
 
 ## Demonstrations
 
@@ -166,7 +166,6 @@ Figure 4 is our ICS network topology where Attack & Defence takes place.
 
 ## TODO
 
-- GNS3 server over SSH or over HTTPS
 - Change the ASAv firewall to pfsense/opnsense or find a licenced firewall
 - Include the [level-0 components](https://github.com/sfl0r3nz05/ICSsVirtualForCiberSec/) of the Purdue model 
 - Attack and defence on OSPF
@@ -174,10 +173,10 @@ Figure 4 is our ICS network topology where Attack & Defence takes place.
 
 ## DOCS TODO (temporary)
 
-- [detailed explaination](/network/ics/README.md)
-- [configuration of OpenPLC, Scada-LTS, KaliLinux, Open vSwitch, ONOS, USG6000v](/network/nodes/configuration/README.md)
-- [how to compile and run Modbus attacker](/modbus/attack/README.md)
-- [how to use IntelliJ IDEA](/modbus/defence/README.md)
-- [how to install and run slowhttptest](/http/attack/README.md)
+- [detailed explaination](./network/ics/README.md)
+- [configuration of OpenPLC, Scada-LTS, KaliLinux, Open vSwitch, ONOS, USG6000v](./network/nodes/configuration/README.md)
+- [how to compile and run Modbus attacker](./modbus/attack/README.md)
+- [how to use IntelliJ IDEA](./modbus/defence/README.md)
+- [how to install and run slowhttptest](./http/attack/README.md)
 - [demonstration](#demonstrations)
 - [publication](#publications)

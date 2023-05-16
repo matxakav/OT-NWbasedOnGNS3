@@ -26,7 +26,8 @@
             "filename": "c7200-adventerprisek9-mz.153-3.XB12.image",
             "version": "153-3.XB12",
             "md5sum": "3d234a3793331c972776354531f87221",
-            "filesize": 131471340
+            "filesize": 131471340,
+			"download_url": "https://drive.google.com/drive/folders/1v6ploOxr455Z-ImIt14x9Ue8-oONx6cg"
         }
     ],
     "versions": [

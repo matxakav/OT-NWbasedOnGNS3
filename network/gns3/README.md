@@ -230,7 +230,7 @@ sudo firewall-cmd --zone=public --add-port=3080,5000:5050/tcp
 
 <br/>
 
-![image](/assets/GNS3%20CS%20Connection.png)
+![image](./assets/GNS3%20CS%20Connection.png)
 
 <p align="center"><b>Figure 1</b> Connect GNS3 Client to GNS3 Server</p>
 
@@ -428,7 +428,7 @@ Now, in the laptop console, you can type `up` to set up the local forwarding, an
 
 For GNS3 server to make use of local forwarding, we use this `~/.config/GNS3/2.2/gns3_server.conf` configuration in the home desktop.
 
-- Note that we start the console port from 5001. This is because port 5000 is occupied in our Mac laptop, so we decided not to forward that port.
+- Note that we start the console port from 5001. This is because port 5000 is occupied in our Mac laptop, so we discarded that port. It is up to you to decide your console port range, and GNS3 server should have at least 40 available ports for our ICS network to start.
 
 ```conf
 [Server]
@@ -440,3 +440,5 @@ auth = True
 user = gns3
 password = gns3
 ```
+
+When SSH local forwarding is `up`, you can use GNS3 client to connect to the GNS3 server at `tcp:127.0.0.1:3080` in your laptop.
