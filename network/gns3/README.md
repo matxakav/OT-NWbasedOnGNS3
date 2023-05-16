@@ -228,9 +228,15 @@ sudo firewall-cmd --reload
 sudo firewall-cmd --zone=public --add-port=3080,5000:5050/tcp
 ```
 
+<br/>
+
 ![image](/assets/GNS3%20CS%20Connection.png)
 
-The figure shows how to use GNS3 client to connect to GNS3 server. By default, GNS3 server uses HTTP auth with username/password: `gns3`/`gns3`.
+<p align="center"><b>Figure 1</b> Connect GNS3 Client to GNS3 Server</p>
+
+<br/>
+
+Figure 1 shows how to use GNS3 client to connect to GNS3 server. Say the server IP is `192.168.0.1`. By default, GNS3 server uses HTTP auth with username/password: `gns3`/`gns3`.
 
 ## Security Patches
 
