@@ -248,7 +248,7 @@ It is strongly advised to remove password authentication for openssh-server in y
 # you can safely press "Return" for all prompts
 ssh-keygen
 
-# the private key can only be read by youself
+# the private key can only be read by yourself
 chmod 400 ~/.ssh/id_rsa
 ```
 
