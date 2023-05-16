@@ -174,7 +174,6 @@ Figure 4 is our ICS network topology where Attack & Defence takes place.
 
 ## DOCS TODO (temporary)
 
-- [security patches](/network/gns3/README.md#security-patches)
 - [detailed explaination](/network/ics/README.md)
 - [configuration of OpenPLC, Scada-LTS, KaliLinux, Open vSwitch, ONOS, USG6000v](/network/nodes/configuration/README.md)
 - [how to compile and run Modbus attacker](/modbus/attack/README.md)
