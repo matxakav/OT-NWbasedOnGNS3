@@ -138,7 +138,7 @@ Figure 4 is our ICS network topology where Attack & Defence takes place.
 
 ## ICS Network
 
-1. [Install GNS3 client and server](./network/gns3/README.md)
+1. [Install GNS3 client and server](./gns3/README.md)
 2. [Deploy generic base network in GNS3 server](./network/base/README.md)
 3. [Deploy ICS network in GNS3 server](./network/ics/README.md)
 
@@ -171,8 +171,8 @@ Figure 4 is our ICS network topology where Attack & Defence takes place.
 
 ## DOCS TODO (temporary)
 
-- [detailed explaination](./network/ics/README.md)
-- [configuration of OpenPLC, Scada-LTS, KaliLinux, Open vSwitch, ONOS, USG6000v](./network/nodes/configuration/README.md)
+- [ics](./network/ics/README.md)
+- [configuration of OpenPLC, Scada-LTS, KaliLinux, Open vSwitch, ONOS, USG6000v](./network/nodes/README.md)
 - [how to compile and run Modbus attacker](./modbus/attack/README.md)
 - [how to use IntelliJ IDEA](./modbus/defence/README.md)
 - [how to install and run slowhttptest](./http/attack/README.md)

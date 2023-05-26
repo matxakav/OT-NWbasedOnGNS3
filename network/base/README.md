@@ -38,5 +38,5 @@ Figure 2 is our generic base network deployed in GNS3 server in our home desktop
 
 ## Deploy Generic Base Network in GNS3 Server
 
-1. [Import all appliances into GNS3 server](../appliances/README.md)
-2. [Instantiate and configure nodes](../nodes/README.md)
+1. [Import all appliances into GNS3 server](./appliances/README.md)
+2. [Instantiate and configure nodes](./nodes/README.md)

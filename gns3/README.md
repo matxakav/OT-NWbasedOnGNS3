@@ -1,12 +1,13 @@
-# Install GNS3 Client and Server
+# Install and Use GNS3 Client and Server
 
-- [Install GNS3 Client and Server](#install-gns3-client-and-server)
+- [Install and Use GNS3 Client and Server](#install-and-use-gns3-client-and-server)
 	- [Prerequisites](#prerequisites)
 	- [Install GNS3 Client](#install-gns3-client)
 	- [Install GNS3 Server](#install-gns3-server)
 		- [Install Docker Engine](#install-docker-engine)
-	- [Start GNS3 Server](#start-gns3-server)
+	- [Run GNS3 Server](#run-gns3-server)
 	- [Connect GNS3 Client to Server](#connect-gns3-client-to-server)
+	- [Configure GNS3 Client Workspace](#configure-gns3-client-workspace)
 	- [Security Patches](#security-patches)
 		- [SSH over Public-Key Authentication](#ssh-over-public-key-authentication)
 		- [GNS3 Server over SSH Local Forwarding](#gns3-server-over-ssh-local-forwarding)
@@ -139,7 +140,7 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 sudo usermod -aG docker $USER
 ```
 
-## Start GNS3 Server
+## Run GNS3 Server
 
 It is recommended to run gns3server as a service with **nonroot** user.
 
@@ -230,13 +231,25 @@ sudo firewall-cmd --zone=public --add-port=3080,5000:5050/tcp
 
 <br/>
 
-![image](./assets/GNS3%20CS%20Connection.png)
+![image](../assets/GNS3%20CS%20Connection.png)
 
 <p align="center"><b>Figure 1</b> Connect GNS3 Client to GNS3 Server</p>
 
 <br/>
 
 Figure 1 shows how to use GNS3 client to connect to GNS3 server. Say the server IP is `192.168.0.1`. By default, GNS3 server uses HTTP auth with username/password: `gns3`/`gns3`.
+
+## Configure GNS3 Client Workspace
+
+<br/>
+
+![image](../assets/GNS3%20Client%20Workspace.png)
+
+<p align="center"><b>Figure 2</b> Configure GNS3 Client Workspace</p>
+
+<br/>
+
+As shown in Figure 2, When you create a new project, it's advised to enable `Show the grid`, `Snap to grid`, and `Show interface labels` from the menu bar of GNS3 client. Besides, you can use `Fit in view` to automatically zoom the workspace to display all nodes.
 
 ## Security Patches
 
@@ -428,7 +441,7 @@ Now, in the laptop console, you can type `up` to set up the local forwarding, an
 
 For GNS3 server to make use of local forwarding, we use this `~/.config/GNS3/2.2/gns3_server.conf` configuration in the home desktop.
 
-- Note that we start the console port from 5001. This is because port 5000 is occupied in our Mac laptop, so we discarded that port. It is up to you to decide your console port range, and GNS3 server should have at least 40 available ports for our ICS network to start.
+- Note that we start the console port from `5001`. This is because port `5000` is occupied in our Mac laptop, so we discarded that port. It is up to you to decide your console port range, and GNS3 server should have at least 40 available ports for our ICS network to start.
 
 ```conf
 [Server]
