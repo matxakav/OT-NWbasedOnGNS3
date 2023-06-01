@@ -1,8 +1,14 @@
-# USG6000v
+# USG6000v-I Configuration
 
-USG6000v from HuaWei is quite different from Cisco firewall. Use the following configuration.
+HUAWEI's product is quite different from Cisco's.
 
-USG6000v has a 15-day trial licence, so you need to reconfigure it every half month.
+- The `en` and `conf t` is replaced by `system-view`.
+- The `exit` is replaced by `quit`.
+- The `wr` is replaced by `save` and `yes`.
+
+USG6000v has a 15-day trial licence, so you need to redeploy it every half month. Compared with unlicenced Cisco ASAv firewall, USG6000v with trial licence has higher bandwidth.
+
+- USG6000v use `security-policy` instead of Access Control List (ACL). It is quite self-explanatory. However, the sequence of these policies matters. The USG6000v will match the traffic to security policies one by one, and stop at the first success. So, you should deploy narrow policy before loose ones to avoid loose policies permit the harmful traffic that should be denied in narrow policies. Chinese users refer to [this blog](https://zhuanlan.zhihu.com/p/395704563) for more information.
 
 ```
 system-view

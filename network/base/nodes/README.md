@@ -13,6 +13,8 @@ The word "instantiate" is a Java-style expression to `new` an object from a give
 
 We map nodes to appliances in the generic base network.
 
+- VPCS, the Virtual PC Simulator, is a prebuilt appliance in GNS3 server.
+
 | Nodes | Appliances |
 | --- | --- |
 | PC1 - 4 | VPCS |
@@ -38,35 +40,65 @@ The name of each node in the same workspace is unique.
 - The node must be powered off.
 - Double click the node to show the config window. Edit the `Name` of the node and click `Apply` and then `OK`.
 
-![image](https://user-images.githubusercontent.com/69375071/210249045-e5e70657-af20-414f-89ce-3a11b2bf9a28.png)
+![image](../../../assets/Rename%20a%20Node.png)
 
 ### Configure Network Adapters
 
-This applies to PC1 ~ PC4. In brief, all VPCS nodes and Docker containers need configuring.
+This applies to PC1 ~ PC4 in the generic base network. In principle, all VPCS nodes and Docker containers need configuring.
 
-PC1 ~ PC4
-
-```
-ip 192.168.10.1/24 192.168.10.254
-```
+These nodes should be powered off before configuring. For each VPCS node in PC1 ~ PC4, right click on the node and select `Edit config` to open the `startup.vpc` config file. We want to append some lines into the file and then `Save` our configuration.
 
 <div align=center>
 
-<img src="https://user-images.githubusercontent.com/69375071/210246729-e35e1168-86da-4eee-aafc-9ce40456257e.png" width="49%" />
-<img src="https://user-images.githubusercontent.com/69375071/210246751-4edf4d3d-dfff-4966-8303-87e800c80b70.png" width="49%" />
+<img src="../../../assets/Edit%20Config.png" width="41%" />
+<img src="../../../assets/PC%20Config.png" width="58%" />
 
 </div>
 
+<br/>
+
+- PC1
+
+```
+set pcname PC1
+ip 192.168.10.1/24 192.168.10.254
+ip dns 8.8.8.8
+```
+
+- PC2
+
+```
+set pcname PC2
+ip 192.168.40.1/24 192.168.40.254
+ip dns 8.8.8.8
+```
+
+- PC3
+
+```
+set pcname PC3
+ip 172.16.50.1/24 172.16.50.254
+ip dns 8.8.8.8
+```
+
+- PC4
+
+```
+set pcname PC4
+ip 195.1.1.161/29 195.1.1.166
+ip dns 8.8.8.8
+```
+
 ### Link Nodes
 
-- Click `Add a link` from the left toolbar to enter linking mode.
-- Click on a node and select an adapter for one side, and click on another node and select an adapter for another side. This creates a link between them.
+- Click the `Add a link` button from the left toolbar (you may hover on each button to see its description) to enter the linking mode.
+  - In the linking mode, click on a node and select an adapter for one side, and click on another node and select an adapter for another side. This creates a link between them.
 - Right click on a wrong link to delete it.
 
 <div align=center>
 
-<img src="https://user-images.githubusercontent.com/69375071/210214930-29754228-799d-4b3f-82c0-2c9ed049e078.png" width="49%" />
-<img src="https://user-images.githubusercontent.com/69375071/210214939-7ba60df6-5270-4294-9799-7b48161fa01b.png" width="49%" />
+<img src="../../../assets/Add%20a%20Link.png" width="37%" />
+<img src="../../../assets/Delete%20a%20Link.png" width="61%" />
 
 </div>
 
@@ -74,20 +106,18 @@ ip 192.168.10.1/24 192.168.10.254
 
 ## Configure Nodes
 
-- Core
-  - End Devices: [PC1 - 4](./PC.md)
+In principle, a node should be started before configuration. It's advised to read these documents one by one, because duplicate steps won't be repeat in detail again.
+
+- Core:
   - Access Layer: [OpenSwitch-Acc-I & II](./OpenSwitch-Acc.md)
   - Distribution Layer: [vEOS-Dis-I & II](./vEOS-Dis.md)
   - Core Layer: [vIOS-Core-I & II](./vIOS-Core.md)
 - Firewall:
-  - [ASAv-I](./ASAv-I.md) (unlicenced ASAv has limited throughput)
-  - [USG6000v](./USG6000v.md) (the USG6000v)
-- Data Center:
-  - [vIOS-Ser-I](./vIOS-Ser-I.md)
-  - [Server1](./Server1.md) (this is not used in our network)
+  - [ASAv-I](./ASAv-I.md) (unlicenced Cisco ASAv firewall with limited throughput)
+  - [USG6000v-I](./USG6000v-I.md) (HUAWEI's firewall with a 15-day trial licence and better throughput, an alternative to ASAv-I)
+- Data Center: [vIOS-Ser-I](./vIOS-Ser-I.md)
 - Edge Router: [vIOS-Edge-I](./vIOS-Edge-I.md)
-- ISP: [ISP1 & 2](./ISP.md)
+- ISP: [ISP-I & II](./ISP.md)
 - DMZ:
   - [ASAv-DMZ-I](./ASAv-DMZ-I.md)
   - [vIOS-DMZ-I](./vIOS-DMZ-I.md)
-  - [Serv-DMZ-I](./Serv-DMZ-I.md)
