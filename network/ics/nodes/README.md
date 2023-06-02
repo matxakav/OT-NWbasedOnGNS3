@@ -14,6 +14,7 @@ The word "instantiate" is a Java-style expression to `new` an object from a give
 We map new nodes to additional appliances in the ICS network.
 
 - We delete PC1 ~ PC3, and [rename](#rename-a-node) PC4 to PC1.
+- Kali Linux is a fork of Ubuntu, with the same APT package manager.
 
 | Nodes | Appliances |
 | --- | --- |
@@ -161,6 +162,9 @@ We then configure all Cloud nodes: Cloud1 ~ Cloud4.
 
 ## Configure Nodes
 
-- OpenPLC
-- Scada-LTS
-- Kali Linux
+Docker containers in GNS3 server are usually volatile. They are created from Docker images when you open the project, and destroyed when you close the project. However, docker images with volume mapping can keep the data persistent, see the [official document](https://docs.gns3.com/docs/emulators/docker-support-in-gns3#persistence).
+
+KaliLinux1 & 2 and OVS-I - IV can be used out of the box, so no configuration is needed.
+
+- [OpenPLC1](./OpenPLC1.md)
+- [Scada-LTS1](./Scada-LTS1.md)

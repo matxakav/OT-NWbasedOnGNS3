@@ -8,6 +8,7 @@
 		- [Instantiate and Configure Nodes](#instantiate-and-configure-nodes)
 		- [Start and configure ONOS SDN controller](#start-and-configure-onos-sdn-controller)
 		- [Connect Open vSwitches to ONOS](#connect-open-vswitches-to-onos)
+		- [Use Auxiliary Console of a Docker Container](#use-auxiliary-console-of-a-docker-container)
 
 Portable project of the ICS network is available on [Google Drive](https://drive.google.com/drive/folders/1ooRXrQyf2Lz0mGtcHeRZjTrhDW_SKV4w/).
 
@@ -73,3 +74,14 @@ Dump flow entries in Open vSwitch from ONOS
 ```sh
 ovs-ofctl -O OpenFlow13 dump-flows br0
 ```
+
+### Use Auxiliary Console of a Docker Container
+
+GNS3 server provides an auxiliary console for each docker container, which not only provides quick access to a container's console, but also provides some useful tools such as `ip` and `wget` that the container may not have.
+
+To enter the auxiliary console, right click on a docker container and select `Auxiliary console`.
+
+- You can speed up the [configuration of Scada-LTS1](./nodes/Scada-LTS1.md) using the auxiliary console instead of SSH.
+- You can quick access the console of OpenPLC1 and Scada-LTS1 using the auxiliary console. Although OpenPLC1 and Scada-LTS1 don't have the `wget` tool, we can use the `wget` in auxiliary console to quickly download something into them.
+
+![image](../../assets/Auxiliary%20Console.png)
