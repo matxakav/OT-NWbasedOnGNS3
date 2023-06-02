@@ -10,6 +10,8 @@ USG6000v has a 15-day trial licence, so you need to redeploy it every half month
 
 - USG6000v use `security-policy` instead of Access Control List (ACL). It is quite self-explanatory. However, the sequence of these policies matters. The USG6000v will match the traffic to security policies one by one, and stop at the first success. So, you should deploy narrow policy before loose ones to avoid loose policies permit the harmful traffic that should be denied in narrow policies. Chinese users refer to [this blog](https://zhuanlan.zhihu.com/p/395704563) for more information.
 
+USG6000v-I node is an alternative to ASAv-I node.
+
 ```
 system-view
 sysname USG6000v-I

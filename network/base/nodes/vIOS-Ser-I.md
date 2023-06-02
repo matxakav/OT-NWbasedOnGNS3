@@ -30,7 +30,8 @@ interface GigabitEthernet0/2
  switchport mode access
 !
 interface GigabitEthernet0/3
- shutdown
+ switchport access vlan 50
+ switchport mode access
 !
 interface GigabitEthernet1/0
  shutdown
