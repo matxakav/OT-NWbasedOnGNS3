@@ -171,8 +171,6 @@ Figure 4 is our ICS network topology where Attack & Defence takes place.
 
 ## DOCS TODO (temporary)
 
-- [ics](./network/ics/README.md)
-- [configuration of OpenPLC, Scada-LTS, KaliLinux, Open vSwitch, ONOS](./network/nodes/README.md)
 - [how to compile and run Modbus attacker](./modbus/attack/README.md)
 - [how to use IntelliJ IDEA](./modbus/defence/README.md)
 - [how to install and run slowhttptest](./http/attack/README.md)

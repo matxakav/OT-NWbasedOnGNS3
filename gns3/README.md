@@ -407,6 +407,15 @@ Host up
 	LocalForward 127.0.0.1:5048 127.0.0.1:5048
 	LocalForward 127.0.0.1:5049 127.0.0.1:5049
 	LocalForward 127.0.0.1:5050 127.0.0.1:5050
+	LocalForward 127.0.0.1:8101 127.0.0.1:8101
+	LocalForward 127.0.0.1:8181 127.0.0.1:8181
+Host onos
+	HostName 127.0.0.1
+	User onos
+	HostKeyAlgorithms +ssh-rsa
+	Port 8101
+	StrictHostKeyChecking no
+	UserKnownHostsFile /dev/null
 Host *
 	Protocol 2
 	ServerAliveInterval 30
@@ -442,6 +451,7 @@ Now, in the laptop console, you can type `up` to set up the local forwarding, an
 For GNS3 server to make use of local forwarding, we use this `~/.config/GNS3/2.2/gns3_server.conf` configuration in the home desktop.
 
 - Note that we start the console port from `5001`. This is because port `5000` is occupied in our Mac laptop, so we discarded that port. It is up to you to decide your console port range, and GNS3 server should have at least 40 available ports for our ICS network to start.
+- Note that we also add port 8101 and 8181 and a host "onos", which is for the ONOS SDN controller.
 
 ```conf
 [Server]

@@ -65,84 +65,22 @@ iface eth0 inet static
 	up echo nameserver 8.8.8.8 > /etc/resolv.conf
 ```
 
-Now, we can configure network adapters for other docker containers according to the information below.
+Now, we can configure network adapters for other docker containers according to the table below. For each network adapter, we should change the "address", "netmask", and "gateway".
 
-- Scada-LTS1
+- We always configure the network adapter `eth0`
+- The subnet mask `255.255.255.0` is equivalent to the netmask length (aka. prefix) `/24`, and `255.255.0.0` is `/16`
+- Linux kernel uses the name server in `/etc/resolv.conf`
 
-```
-auto eth0
-iface eth0 inet static
-	address 172.16.50.1
-	netmask 255.255.255.0
-	gateway 172.16.50.254
-	up echo nameserver 8.8.8.8 > /etc/resolv.conf
-```
-
-- KaliLinux1
-
-```
-auto eth0
-iface eth0 inet static
-	address 192.168.40.1
-	netmask 255.255.255.0
-	gateway 192.168.40.254
-	up echo nameserver 8.8.8.8 > /etc/resolv.conf
-```
-
-- KaliLinux2
-
-```
-auto eth0
-iface eth0 inet static
-	address 172.16.50.2
-	netmask 255.255.255.0
-	gateway 172.16.50.254
-	up echo nameserver 8.8.8.8 > /etc/resolv.conf
-```
-
-- OVS-I
-
-```
-auto eth0
-iface eth0 inet static
-	address 172.17.1.1
-	netmask 255.255.0.0
-	gateway 172.17.0.1
-	up echo nameserver 8.8.8.8 > /etc/resolv.conf
-```
-
-- OVS-II
-
-```
-auto eth0
-iface eth0 inet static
-	address 172.17.1.2
-	netmask 255.255.0.0
-	gateway 172.17.0.1
-	up echo nameserver 8.8.8.8 > /etc/resolv.conf
-```
-
-- OVS-III
-
-```
-auto eth0
-iface eth0 inet static
-	address 172.17.1.3
-	netmask 255.255.0.0
-	gateway 172.17.0.1
-	up echo nameserver 8.8.8.8 > /etc/resolv.conf
-```
-
-- OVS-IV
-
-```
-auto eth0
-iface eth0 inet static
-	address 172.17.1.4
-	netmask 255.255.0.0
-	gateway 172.17.0.1
-	up echo nameserver 8.8.8.8 > /etc/resolv.conf
-```
+| Nodes | Address/Prefix | Gateway |
+| :-: | :-: | :-: |
+| OpenPLC1 | 192.168.10.1/24 | 192.168.10.254 |
+| Scada-LTS1 | 172.16.50.1/24 | 172.16.50.254 |
+| KaliLinux1 | 192.168.40.1/24 | 192.168.40.254 |
+| KaliLinux2 | 172.16.50.2/24 | 172.16.50.254 |
+| OVS-I | 172.17.1.1/16 | 172.17.0.1 |
+| OVS-II | 172.17.1.2/16 | 172.17.0.1 |
+| OVS-III | 172.17.1.3/16 | 172.17.0.1 |
+| OVS-IV | 172.17.1.4/16 | 172.17.0.1 |
 
 We then configure all Cloud nodes: Cloud1 ~ Cloud4.
 
