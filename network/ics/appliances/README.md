@@ -11,6 +11,8 @@ Appliance templates are JSON files with the extension `.gns3a`.
 
 Download additional appliance templates (apart from required templates in generic base network) as a [zip file](./ics-appliances.zip). You can also open them one by one in the current directory.
 
+- Concerning `.zip`, one should know that [it is also a TLD (Top-Level Domain)](https://www.youtube.com/watch?v=LFriS1PICE0) with security issues.
+
 ## Import Appliances into GNS3 Server
 
 Refer to [this section](../../base/appliances/README.md#import-appliances-into-gns3-server).

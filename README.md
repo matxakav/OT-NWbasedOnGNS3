@@ -9,7 +9,6 @@
 	- [Modbus/TCP](#modbustcp)
 	- [HTTP](#http)
 	- [Demonstrations](#demonstrations)
-	- [Publications](#publications)
 	- [TODO](#todo)
 	- [DOCS TODO (temporary)](#docs-todo-temporary)
 
@@ -158,10 +157,6 @@ Figure 4 is our ICS network topology where Attack & Defence takes place.
 - videos to be added
 - PowerPoint slides to be added
 
-## Publications
-
-- Medium blog link to be added
-
 ## TODO
 
 - Change the ASAv firewall to pfsense/opnsense or find a licenced firewall
@@ -171,8 +166,5 @@ Figure 4 is our ICS network topology where Attack & Defence takes place.
 
 ## DOCS TODO (temporary)
 
-- [how to compile and run Modbus attacker](./modbus/attack/README.md)
 - [how to use IntelliJ IDEA](./modbus/defence/README.md)
-- [how to install and run slowhttptest](./http/attack/README.md)
 - [demonstration](#demonstrations)
-- [publication](#publications)

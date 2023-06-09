@@ -10,6 +10,8 @@ Appliance templates are JSON files with the extension `.gns3a`.
 
 Download all required appliance templates as a [zip file](./base-appliances.zip). You can also open them one by one in the current directory.
 
+- Concerning `.zip`, one should know that [it is also a TLD (Top-Level Domain)](https://www.youtube.com/watch?v=LFriS1PICE0) with security issues.
+
 ## Import Appliances into GNS3 Server
 
 1. Select `Import appliance` from the menu bar of GNS3 client to open a `.gns3a` file. You can also double click on the `.gns3a` file to open it with GNS3 client.
