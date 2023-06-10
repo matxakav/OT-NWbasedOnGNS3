@@ -152,8 +152,6 @@ Figure 4 is our ICS network topology where Attack & Defence takes place.
 
 ## Demonstrations
 
-- [Check the video demonstration of Modbus/TCP DoS attack](https://youtu.be/zfWXR3ZAG7I)
-- [Check the video demonstration of Slowloris HTTP attack]()
 - [Check the video demonstration of the project](https://youtu.be/drThPINrCzc)
 - [Check the PowerPoint slides of the project](./assets/Slides.pptx)
 
