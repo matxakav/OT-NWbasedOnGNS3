@@ -9,6 +9,7 @@
 		- [4. Run and configure ONOS SDN controller](#4-run-and-configure-onos-sdn-controller)
 		- [5. Connect Open vSwitches to ONOS](#5-connect-open-vswitches-to-onos)
 		- [6. Use Auxiliary Console of a Docker Container](#6-use-auxiliary-console-of-a-docker-container)
+		- [7. Capture the Traffic using Wireshark](#7-capture-the-traffic-using-wireshark)
 
 Portable project of the ICS network is available on [Google Drive](https://drive.google.com/drive/folders/1ooRXrQyf2Lz0mGtcHeRZjTrhDW_SKV4w/).
 
@@ -122,3 +123,31 @@ To enter the auxiliary console, right click on a docker container and select `Au
 - You can quick access the console of OpenPLC1 and Scada-LTS1 using the auxiliary console. Although OpenPLC1 and Scada-LTS1 don't have the `wget` tool, we can use the `wget` in auxiliary console to quickly download something into them.
 
 ![image](../../assets/Auxiliary%20Console.png)
+
+### 7. Capture the Traffic using Wireshark
+
+Wireshark is a well-known network protocol analyzer around the globe. Refer to the [official user guide](https://www.wireshark.org/docs/wsug_html_chunked/) for more information.
+
+GNS3 server in your home desktop already has a Wireshark "server" integrated, however, you need a Wireshark "client" in your laptop to visualise the traffic. [Download](https://www.wireshark.org/download.html) and install Wireshark in your laptop.
+
+- If you are a Mac user with [Homebrew](https://brew.sh) package manager installed. You can install Wireshark as a Homebrew cask.
+  - Chinese users often need a proxy to use Homebrew.
+
+```sh
+brew install --cask wireshark
+```
+
+We first start all nodes in ICS network so that there is traffic among them.
+
+Then, right click on a target link and select `Start capture` to cpature the link. A Wireshark window should launch in your laptop, showing all packets that go through the link.
+
+Sometimes when the Wireshark window in laptop won't launch, right click on the link being captured and select `Start Wireshark` to launch it.
+
+When the nodes at both ends of the link are powered off, the capturing of the link automatically stops.
+
+<div align=center>
+
+<img src="../../assets/Start%20Capture.png" width="48%" />
+<img src="../../assets/Start%20Wireshark.png" width="50%" />
+
+</div>

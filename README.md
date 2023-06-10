@@ -10,7 +10,6 @@
 	- [HTTP](#http)
 	- [Demonstrations](#demonstrations)
 	- [TODO](#todo)
-	- [DOCS TODO (temporary)](#docs-todo-temporary)
 
 In this project, we practise **SDN**-based Attack & Defence on **Modbus/TCP and HTTP protocols** in an **ICS network**.
 
@@ -154,8 +153,9 @@ Figure 4 is our ICS network topology where Attack & Defence takes place.
 ## Demonstrations
 
 - [Check the video demonstration of Modbus/TCP DoS attack](https://youtu.be/zfWXR3ZAG7I)
-- videos to be added
-- PowerPoint slides to be added
+- [Check the video demonstration of Slowloris HTTP attack]()
+- [Check the video demonstration of the project](https://youtu.be/drThPINrCzc)
+- [Check the PowerPoint slides of the project](./assets/Slides.pptx)
 
 ## TODO
 
@@ -163,8 +163,3 @@ Figure 4 is our ICS network topology where Attack & Defence takes place.
 - Include the [level-0 components](https://github.com/sfl0r3nz05/ICSsVirtualForCiberSec/) of the Purdue model 
 - Attack and defence on OSPF
 - Use other forms of attack different from the [endpoint DoS](https://attack.mitre.org/techniques/T1499/)
-
-## DOCS TODO (temporary)
-
-- [how to use IntelliJ IDEA](./modbus/defence/README.md)
-- [demonstration](#demonstrations)

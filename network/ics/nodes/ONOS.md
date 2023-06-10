@@ -45,3 +45,8 @@ Use the "upload" button to upload these two app components. They are ".oar" arch
 ![image](../../../assets/ONOS%20App.png)
 
 When we want to update an app component, we first deactivate and delete it, and then upload and activate the new one.
+
+Read the full [ONOS wiki](https://wiki.onosproject.org) for guides, tutorials, and other useful information.
+
+- Ensure to read [this article](https://wiki.onosproject.org/display/ONOS/System+Components) to have a systematic overview of ONOS.
+- Practice ONOS + Mininet from [this article](https://wiki.onosproject.org/display/ONOS/Basic+ONOS+Tutorial).

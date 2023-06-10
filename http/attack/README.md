@@ -14,7 +14,7 @@ A slowloris attack is a kind of slow HTTP DoS attack. It consumes the resource o
 
 Refer to the [source code](https://github.com/gkbrk/slowloris/) of Slowloris attack.
 
-The slowloris attack is conducted using the `slowhttptest` tool. `slowhttptest` is available in `APT` packet manager.
+The slowloris attack is conducted using the `slowhttptest` tool. `slowhttptest` is available in `APT` package manager.
 
 - Our KaliLinux Docker image already has `slowhttptest` installed.
 
