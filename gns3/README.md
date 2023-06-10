@@ -38,10 +38,8 @@ Thanks to China's IoT network infrastructure construction, Chinese home broadban
 
 ## Install GNS3 Client
 
-1. Go to https://gns3.com/ and register an account with an educational email address.
-   - Chinese users are advised to use foreign email addresses.
-2. Login and then [download the GNS3 client](https://gns3.com/software/download).
-3. Install the package.
+1. [Download the GNS3 client](https://github.com/GNS3/gns3-gui/releases/) from GitHub release. Do not download from GNS3 official website because sometimes it will prompt "Download Request Received" without showing you the download link.
+2. Install the package.
    - Mac users on Ventura and later refer to [this discussion](https://gns3.com/install-error-macos-ventura/) in case of installation error.
 
 ## Install GNS3 Server
@@ -147,8 +145,8 @@ It is recommended to run gns3server as a service with **nonroot** user.
 - Generic Linux (except Ubuntu/Debian) following this instruction can only run gns3server as root.
 
 ```sh
-# remove "User=" and "Group=" lines in generic Linux (except Ubuntu/Debian)
-# gns3server.service should be overwritten and reloaded after each apt upgrade of gns-server in Ubuntu/Debian
+# Remove "User=" and "Group=" lines in generic Linux (except Ubuntu/Debian)
+# Note that gns3server.service should be overwritten, reloaded and restarted after each APT upgrade of gns-server in Ubuntu/Debian
 sudo cat > /lib/systemd/system/gns3server.service << EOF
 [Unit]
 Description=GNS3 server

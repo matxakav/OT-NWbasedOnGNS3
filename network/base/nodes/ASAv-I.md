@@ -12,7 +12,7 @@ The Cisco ASAv firewall is unlicenced and require one smart licence to remove it
 
 Use the following configuration for `ASAv-I`.
 
-- It's quite weird that very rarely ASAv-I will lose the OSPF configuration part (four network in `router ospf 1`) on importing, exporting, or duplicating the whole project. I don't know if this is a bug of ASAv or GNS3 server. Anyway, use `show run` to recheck the ASAv-I configuration after you migrate the project.
+- It's quite weird that very rarely ASAv-I will lose the OSPF configuration part (four network in `router ospf 1`) on importing, exporting, or duplicating the whole project, or upgrading GNS3 server. I don't know if this is a bug of ASAv or GNS3 server. Anyway, use `show run` to recheck the ASAv-I configuration after you migrate the project.
 - You may want to modify the Access Control List (ACL) in ASAv-I. Refer to [Brezular's blog](https://brezular.com/2017/12/01/enterprise-network-on-gns3-part-4-cisco-asav-i/) to get started, and read [Cisco's official document](https://www.cisco.com/c/en/us/td/docs/security/asa/asa92/configuration/general/asa-general-cli/acl-extended.pdf) for advanced usage.
 
 ```

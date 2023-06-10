@@ -18,7 +18,7 @@ The countermeasure is implemented as an app component in ONOS SDN controller, as
 
 <br/>
 
-The countermeasure is based on the design of injection attack itself. From [Wireshark capture](../../network/ics/README.md#7-capture-the-traffic-using-wireshark), we find Modbus/TCP packets sent by the attacker is always with function code 6 `WRITE_SINGLE_REGISTER`. This separates the attack traffic from the periodical query traffic of Scada-LTS with function code 1 or 3.
+The countermeasure is based on the design of injection attack itself. From [Wireshark capture](../../network/ics/README.md#7-capture-the-traffic-using-wireshark), we find that Modbus/TCP packets sent by the attacker is always with function code 6 `WRITE_SINGLE_REGISTER`. This separates the attack traffic from the periodical query traffic of Scada-LTS with function code 1 or 3.
 
 ```c
 //Modbus TCP packet {  TransID |   ProtID  |   MsgLen  | UID |  FC |        Data           }  
@@ -36,7 +36,7 @@ The code above from injection attack defines 2 packets to attack OpenPLC via Mod
 
 <br/>
 
-Figure 2 shows the mechanism of SDN-based countermeasure as an app component of ONOS against Modbus/TCP.
+Figure 2 shows the mechanism of SDN-based countermeasure as an app component of ONOS against injection attack on Modbus/TCP.
 
 - `PacketProcessor` monitors all traffic through Open vSwitches and selects Modbus/TCP packets with function code 6 (aka. Modbus write packets).
 - `FreqAnalyzer` periodically analyses this packets to detect DoS attack based on packet frequency. In 1 second, if there are more than 10 Modbus write packets from the same source IP, then the IP is considered an attacker and defence flow entries are deployed in all Open vSwitches to block it.
