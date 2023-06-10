@@ -1,6 +1,13 @@
 # ONOS
 
+- [ONOS](#onos)
+	- [Run ONOS Docker Container](#run-onos-docker-container)
+	- [ONOS Web UI](#onos-web-ui)
+	- [ONOS CLI](#onos-cli)
+
 Since ONOS's web UI relies on WebSocket protocol and latest GNS3 server [can't relay WebSocket traffic properly](https://github.com/GNS3/gns3-server/issues/2199), we deploy the ONOS SDN controller directly into the Docker engine in our home desktop.
+
+## Run ONOS Docker Container
 
 Create an ONOS container using the following command. It starts a container as system daemon with the name "onos", a web UI listening at "TCP:127.0.0.1:8181" and a SSH console listening at "TCP:127.0.0.1:8101".
 
@@ -19,6 +26,8 @@ We can use `docker network inspect bridge` to find the IPv4 assigned to the runn
 - The running ONOS container in the figure has IPv4 address `172.17.0.2`.
 
 ![image](../../../assets/docker%20network%20inspect%20bridge.png)
+
+## ONOS Web UI
 
 After we start the ONOS container, we can access its web UI on http://127.0.0.1:8181/onos/ui/ in our laptop if we start the SSH local forwarding. Login with username/password: onos/rocks and then we enter the "Topology" view.
 
@@ -50,3 +59,22 @@ Read the full [ONOS wiki](https://wiki.onosproject.org) for guides, tutorials, a
 
 - Ensure to read [this article](https://wiki.onosproject.org/display/ONOS/System+Components) to have a systematic overview of ONOS.
 - Practice ONOS + Mininet from [this article](https://wiki.onosproject.org/display/ONOS/Basic+ONOS+Tutorial).
+
+## ONOS CLI
+
+ONOS also has a Command Line Interface (CLI) that is mainly used to view its real-time logs for debug purposes.
+
+When SSH local forwarding is up, you can SSH into the ONOS CLI in your laptop with password "rocks".
+
+```sh
+# username/password: onos/rocks
+ssh onos
+```
+
+When you are in ONOS CLI, type `log:tail` to view real-time logs. They are very useful when you troubleshoot your app component.
+
+- In an app component, one can use `log.info()` method to print green "INFO" logs, `log.warn()` to print yellow "WARN" logs, and `log.error()` to print red "ERROR" logs.
+
+![image](../../../assets/ONOS%20CLI.png)
+
+When you finish, press `Ctrl + c` to exit the logs, and type `logout` to exit the ONOS CLI.
